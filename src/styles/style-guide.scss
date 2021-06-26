@@ -1,0 +1,177 @@
+.nav-bar {
+  width: 100%;
+  height: 120px;
+  background-color: #f7f7ee;
+  text-align: center;
+  box-shadow: 0px 10px 10px -12px #38384470;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  padding: 20px 140px;
+  margin: 0;
+}
+.nav-bar-fixed {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
+.nav-logo {
+  width: 150px;
+  height: 100%;
+}
+.nav-bar-bottom > ul > li > a {
+  position: relative;
+}
+.nav-bar-bottom > ul > li {
+  list-style: none;
+}
+.nav-bar-bottom > ul > li > a:hover {
+  font-weight: 500;
+  transition: 0.3s;
+}
+.nav-bar-bottom > ul > li > a:after {
+  /* background: none repeat scroll 0 0 transparent; */
+  bottom: 3;
+  content: '';
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: #383844;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+
+.nav-bar-bottom > ul > li > a:hover:after {
+  width: 100%;
+  left: 0;
+}
+.nav-member-act > div a:hover {
+  color: #38384470;
+  transition: 0.2s;
+}
+
+.nav-shop {
+  display: none;
+  position: absolute;
+  top: 120px;
+  z-index: 98;
+  width: 100%;
+  height: 60px;
+  background-color: #f7f7eecc;
+}
+.nav-shop a {
+  font-size: 16px;
+}
+.nav-shop-box {
+  margin: 20px 140px;
+}
+.nav-shop-show {
+  display: block;
+}
+/* ----- typography ----- */
+h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 48px;
+}
+.h2-tc {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 48px;
+  font-weight: bold;
+}
+
+h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+}
+.h3-tc {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 24px;
+}
+
+h4 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 30px;
+}
+.h4-tc {
+  font-family: 'Noto Serif TC', serif;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+h5 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 20px;
+}
+.h5-tc {
+  font-family: 'Noto Serif TC', serif;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+}
+.h6-tc {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+p {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 16px;
+}
+// button
+
+.search-box:hover {
+}
+.search-box:hover .search-input {
+}
+.search-box:hover .search-button {
+}
+.search-input {
+  width: 250px;
+  height: 38px;
+  position: absolute;
+  right: 0;
+  border-radius: 20px;
+  border: 1px solid #383844;
+  background-color: rgba(255, 255, 255, 0.4);
+  color: #383844;
+  font-size: 16px;
+  padding-left: 20px;
+}
+.search-button {
+  position: absolute;
+  right: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid #383844;
+  background-color: #f7f7ee;
+  color: #383844;
+}
+.search-button:hover {
+  background-color: #383844;
+  color: #f7f7ee;
+  transition: 0.2s;
+}
+.btn-border {
+  width: 200px;
+  height: 42px;
+  border-radius: 2rem;
+  background-color: #f7f7ee;
+  border: 1px solid #383844;
+  font-family: "Montserrat", sans-serif;
+  font-weight: normal;
+  font-size: 18px;
+  text-align: center;
+}
+.btn-border:hover {
+  transition: 0.3s;
+  background-color: #383844;
+  color: #f7f7ee;
+}
