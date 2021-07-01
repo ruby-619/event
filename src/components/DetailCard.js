@@ -1,16 +1,23 @@
 import React, { useState, useEffect } from 'react'
 import { BsBookmark } from 'react-icons/bs'
+import { withRouter } from 'react-router-dom'
 
-const DetailCard = () => {
-  const [event, setEvent] = useState([])
+const DetailCard = (props) => {
+  console.log(props)
+
+  const [eventItem, setEventItem] = useState({
+    id: '',
+    eventName: '',
+    eventLocation: '',
+  })
   const [dataLoading, setDataLoading] = useState(false)
 
   async function getEventFromServer() {
     // 開啟載入指示
-    setDataLoading(true)
+    // setDataLoading(true)
 
     // 連接的伺服器資料網址
-    const url = 'http://localhost:6005/event'
+    const url = 'http://localhost:6005/event/?id'
 
     // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
@@ -20,16 +27,17 @@ const DetailCard = () => {
         'Content-Type': 'appliaction/json',
       }),
     })
-
     const response = await fetch(request)
     const data = await response.json()
-
     console.log(data)
     // 設定資料
-    setEvent(data)
+    // setEventItem(data)
   }
   useEffect(() => {
     getEventFromServer()
+    const event = data.find((v, i)=> {
+      return props.match.params.id === v.id
+      setEventItem(event)
   }, [])
 
   // 每次users資料有變動就會X秒後關掉載入指示
@@ -37,7 +45,7 @@ const DetailCard = () => {
     setTimeout(() => {
       setDataLoading(false)
     }, 1000)
-  }, [event])
+  }, [eventItem])
 
   const loading = (
     <>
@@ -48,8 +56,9 @@ const DetailCard = () => {
       </div>
     </>
   )
+
   return (
-    <div>
+    <>
       <div class="ecard3 mt-5 d-flex">
         <div class="smallPhoto d-flex flex-column-reverse align-items-start">
           <div className="sm">
@@ -98,8 +107,8 @@ const DetailCard = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 
-export default DetailCard
+export default withRouter(DetailCard)

@@ -11,16 +11,16 @@ function App() {
       <>
         <Link to="/">EventIndex</Link>
         <Link to="/carousel1">Carousel1</Link>
-        <Link to="/eventlist">EventList</Link>
-        <Link to="/eventdetail">EventDetail</Link>
+        <Link to="/event-list">Event List</Link>
+        <Link to="/event-detail">Event Detail</Link>
 
         {/* 路由表 */}
         <Switch>
-          <Route path="/eventlist">
-            <EventList />
-          </Route>
-          <Route path="/eventdetail">
+          <Route path="/event-detail/:id?">
             <EventDetail />
+          </Route>
+          <Route path="/event-list">
+            <EventList />
           </Route>
           <Route path="/">
             <EventIndex renderItem />

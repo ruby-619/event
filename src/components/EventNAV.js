@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const EventNAV = () => {
   return (
@@ -7,19 +8,19 @@ const EventNAV = () => {
         <div class="Enav ">
           <ul class="d-flex justify-content-center">
             <li>
-              <a href="">戶外</a>
+              <Link to="">戶外</Link>
             </li>
             <li>
-              <a href="">藝文</a>
+              <Link to="">藝文</Link>
             </li>
             <li>
-              <a href="">講座</a>
+              <Link to="">講座</Link>
             </li>
             <li>
-              <a href="">手作</a>
+              <Link to="">手作</Link>
             </li>
             <li>
-              <a href="">品味</a>
+              <Link to="">品味</Link>
             </li>
           </ul>
         </div>

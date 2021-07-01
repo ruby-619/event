@@ -53,6 +53,7 @@ const EventCard = () => {
   )
   return (
     <div>
+    {/* 樣版 */}
       <body className="bg2">
         <div class="container">
           <div class="row">
@@ -87,6 +88,7 @@ const EventCard = () => {
                 </div>
               </div>
             </div>
+            {/* 迴圈自動產生 */}
             {event.length &&
               event.map((v, i) => {
                 return (
