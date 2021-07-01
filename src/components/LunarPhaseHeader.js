@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 
-const LunarPhase = () => {
+const LunarPhaseHeader = () => {
   return (
     <div>
       return (
@@ -64,4 +64,4 @@ const LunarPhase = () => {
   )
 }
 
-export default LunarPhase
+export default LunarPhaseHeader

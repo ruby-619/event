@@ -2,15 +2,14 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
 import { Carousel } from 'react-responsive-carousel'
-import LunarPhaseHeader from '../components/LunarPhaseHeader'
-import EventCard from '../components/EventCard'
-import { GiCampingTent } from 'react-icons/gi'
-import { FaPaintBrush } from 'react-icons/fa'
-import { GiBookCover } from 'react-icons/gi'
-import { FaHandPaper } from 'react-icons/fa'
-import { FaWineGlass } from 'react-icons/fa'
+import LunarPhaseHeader from '../../components/LunarPhaseHeader'
+import EventCard from '../../components/HomePageCard'
+import { GiCampingTent, GiBookCover } from 'react-icons/gi'
+import { FaPaintBrush, FaHandPaper, FaWineGlass } from 'react-icons/fa'
 
-class DemoCarousel extends Component {
+import './Event.scss'
+
+class EventIndex extends Component {
   render() {
     return (
       <>
@@ -18,25 +17,25 @@ class DemoCarousel extends Component {
         <body className="bg1">
           <Carousel>
             <div className="eventCarousal">
-              <img src="../images/womany.png" />
+              <img src="../images/Event/womany.png" />
               {/* <p className="legend">Legend 1</p> */}
             </div>
             <div className="eventCarousal">
-              <img src="../images/670.jpeg" />
+              <img src="../images/Event/670.jpeg" />
               {/* <p className="legend">Legend 2</p> */}
             </div>
             <div className="eventCarousal">
-              <img src="../images/210.jpeg" />
+              <img src="../images/Event/210.jpeg" />
               {/* <p className="legend">Legend 3</p> */}
             </div>
           </Carousel>
           <div class="container">
-            <h2 className="fontE">EVENT</h2>
-            <div className="h6-tc fontE">當期熱門</div>
-            <div className="empty"></div>
+            <h2 className="TextAlignCenter">EVENT</h2>
+            <div className="h6-tc TextAlignCenter">當期熱門</div>
+            <div className="Empty"></div>
             <EventCard />
-            <h2 className="fontE">分類找活動</h2>
-            <div className="categoryICONS">
+            <h2 className="TextAlignCenter">分類找活動</h2>
+            <div className="CategoryIcons">
               <GiCampingTent
                 size="100px"
                 style={{ transform: `translate(${0}px, ${200}px)` }}
@@ -55,7 +54,7 @@ class DemoCarousel extends Component {
                 style={{ transform: `translate(${0}px, ${200}px)` }}
               />
             </div>
-            <div className="backsvg">
+            <div className="WaveBackground">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 // xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -91,4 +90,4 @@ class DemoCarousel extends Component {
   }
 }
 
-export default DemoCarousel
+export default EventIndex

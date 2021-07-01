@@ -4,6 +4,17 @@ const Input = () => {
   const [seletedLocation, setseletedLocation] = useState('')
   const [textfield, setTextfield] = useState('')
   const [seletedOption, setSeletedOption] = useState('')
+  let Location = [
+    '台北',
+    '新北',
+    '桃園',
+    '新竹',
+    '台中',
+    '台南',
+    '宜蘭',
+    '花蓮',
+    '台東',
+  ]
   return (
     <div>
       <div class="container">
@@ -18,10 +29,13 @@ const Input = () => {
               }}
             >
               <option value="">請選擇地點</option>
-              <option value="台北">台北</option>
-              <option value="台中">台中</option>
-              <option value="台南">台南</option>
-              <option value="高雄">高雄</option>
+              {Location.map((v) => {
+                return (
+                  <>
+                    <option value="{v}">{v}</option>
+                  </>
+                )
+              })}
             </select>
             {/* 日期 */}
             {/* <h2>文字輸入框</h2> */}
@@ -52,8 +66,8 @@ const Input = () => {
               }}
             >
               <option value="">依上架順序</option>
-              <option value="台北">由新到舊</option>
-              <option value="台中">由舊到新</option>
+              <option value="由新到舊">由新到舊</option>
+              <option value="由舊到新">由舊到新</option>
             </select>
           </div>
         </div>

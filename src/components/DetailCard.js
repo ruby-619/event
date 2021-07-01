@@ -1,7 +1,53 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { BsBookmark } from 'react-icons/bs'
 
-const EventCard3 = () => {
+const DetailCard = () => {
+  const [event, setEvent] = useState([])
+  const [dataLoading, setDataLoading] = useState(false)
+
+  async function getEventFromServer() {
+    // 開啟載入指示
+    setDataLoading(true)
+
+    // 連接的伺服器資料網址
+    const url = 'http://localhost:6005/event'
+
+    // 注意header資料格式要設定，伺服器才知道是json格式
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+
+    console.log(data)
+    // 設定資料
+    setEvent(data)
+  }
+  useEffect(() => {
+    getEventFromServer()
+  }, [])
+
+  // 每次users資料有變動就會X秒後關掉載入指示
+  useEffect(() => {
+    setTimeout(() => {
+      setDataLoading(false)
+    }, 1000)
+  }, [event])
+
+  const loading = (
+    <>
+      <div className="d-flex justify-content-center">
+        <div className="spinner-border" role="status">
+          <span className="sr-only">Loading...</span>
+        </div>
+      </div>
+    </>
+  )
   return (
     <div>
       <div class="ecard3 mt-5 d-flex">
@@ -20,7 +66,7 @@ const EventCard3 = () => {
           <img src="https://picsum.photos/392/339/?random=1" />
         </div>
         <div class="text3">
-          <h4>品調香體驗 淡香水手作</h4>
+          <h4>eventName</h4>
           <div class="line1 d-flex justify-content-between align-items-center mt-3 border-bottom">
             <h3>$ 990</h3>
             <div className="d-flex align-items-center">
@@ -56,4 +102,4 @@ const EventCard3 = () => {
   )
 }
 
-export default EventCard3
+export default DetailCard

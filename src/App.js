@@ -1,51 +1,36 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import React from 'react'
-import Home from './pages/Home'
-import About from './pages/About'
-import Product from './pages/Product'
-import Event1 from './pages/Event1'
-import Carousel1 from './pages/Carousel1'
-import Event2 from './pages/Event2'
-import Event3 from './pages/Event3'
-
+import EventIndex from './pages/Event/EventIndex'
+import Carousel1 from './components/Carousel1'
+import EventList from './pages/Event/EventList'
+import EventDetail from './pages/Event/EventDetail'
 
 function App() {
   return (
     <Router>
       <>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/product">Product</Link>
-        <Link to="/Event1">Event1</Link>
-        <Link to="/Carousel1">Carousel1</Link>
-        <Link to="/event2">Event2</Link>
-        <Link to="/event3">Event3</Link>
+        <Link to="/">EventIndex</Link>
+        <Link to="/carousel1">Carousel1</Link>
+        <Link to="/eventlist">EventList</Link>
+        <Link to="/eventdetail">EventDetail</Link>
 
         {/* 路由表 */}
         <Switch>
-          <Route path="/about">
-            <About />
+          <Route path="/eventlist">
+            <EventList />
           </Route>
-          <Route path="/product">
-            <Product />
+          <Route path="/eventdetail">
+            <EventDetail />
           </Route>
-          <Route path="/event2">
-            <Event2 />
-          </Route>
-          <Route path="/event3">
-            <Event3 />
-          </Route>
-          <Route path="/Event1">
-            <Event1 renderItem />
+          <Route path="/">
+            <EventIndex renderItem />
           </Route>
           <Route path="/Carousel1">
             <Carousel1 renderItem />
-          </Route><Route path="/Carousel1">
-            <Carousel1 renderItem />
           </Route>
           {/* 網站首頁: exact:精確比對 */}
-          <Route exact path="/Event1">
-            <Event1 />
+          <Route exact path="/">
+            <EventIndex />
           </Route>
         </Switch>
       </>

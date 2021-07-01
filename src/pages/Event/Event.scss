@@ -19,26 +19,28 @@
   object-fit: cover;
 }
 
-// card
-.ecard {
+// card HomePageCard
+
+.HomePageCard
+{
   width: 300px;
   text-align: center;
   color: #383844;
   margin: 0px auto 85px auto;
 }
-.date {
+.HomePageCardDate {
   font-family: 'DM Serif Display', serif;
   font-size: 16px;
   margin-bottom: 18px;
   font-style: italic;
 }
-.title {
+.HomePageCardTitle {
   font-family: 'Noto Serif TC', serif;
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 26px;
 }
-.photo {
+.HomePageCardPhoto {
   width: 300px;
   height: 380px;
 }
@@ -48,7 +50,7 @@ img {
   object-fit: cover;
 }
 
-.content {
+.HomePageCardContent {
   font-family: 'Noto Sans TC', sans-serif;
   font-size: 18px;
   line-height: 30px;
@@ -57,27 +59,27 @@ img {
   padding-bottom: 12px;
   border-bottom: #707070 1px solid;
 }
-.register {
+.HomePageCardRegister {
   font-family: 'Noto Sans TC', sans-serif;
   margin-top: 16px;
 }
 //
-.fontE {
+.TextAlignCenter {
   text-align: center;
 }
 // empty
-.empty {
+.Empty {
   height: 80px;
   border-bottom: #383844 1px solid;
   margin-bottom: 25px;
 }
-.categoryICONS {
+.CategoryIcons {
   display: flex;
   justify-content: space-between;
   margin-top: 68px;
   height: 300px;
 }
-.backsvg {
+.WaveBackground{
   width: 100%;
 }
 svg {
