@@ -1,16 +1,35 @@
 import React, { useState, useEffect } from 'react'
 import { BsBookmark } from 'react-icons/bs'
+import { withRouter } from 'react-router-dom'
 
-const DetailCard = () => {
-  const [event, setEvent] = useState([])
+const DetailCard = (props) => {
+  console.log(props)
+
+  const [event, setEvent] = useState([
+    {
+      id: '',
+      eventId: '',
+      eventName: '',
+      eventSubtitle: '',
+      eventDate: '',
+      eventDescription: '',
+      eventLocation: '',
+      eventImg: '',
+      eventPrice: '0',
+      eventCategory: '',
+      created_at: '',
+      updated_at: '',
+    },
+  ])
+
   const [dataLoading, setDataLoading] = useState(false)
 
   async function getEventFromServer() {
     // 開啟載入指示
-    setDataLoading(true)
+    // setDataLoading(true)
 
     // 連接的伺服器資料網址
-    const url = 'http://localhost:6005/event'
+    const url = 'http://localhost:6005/event?id'
 
     // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
@@ -20,16 +39,19 @@ const DetailCard = () => {
         'Content-Type': 'appliaction/json',
       }),
     })
-
     const response = await fetch(request)
     const data = await response.json()
-
     console.log(data)
     // 設定資料
     setEvent(data)
+    console.log()
   }
   useEffect(() => {
     getEventFromServer()
+    const newevent = event.find((v, i) => {
+      return props.match.params.id === v.id
+    })
+    setEvent(newevent)
   }, [])
 
   // 每次users資料有變動就會X秒後關掉載入指示
@@ -49,7 +71,7 @@ const DetailCard = () => {
     </>
   )
   return (
-    <div>
+    <>
       <div class="ecard3 mt-5 d-flex">
         <div class="smallPhoto d-flex flex-column-reverse align-items-start">
           <div className="sm">
@@ -66,7 +88,7 @@ const DetailCard = () => {
           <img src="https://picsum.photos/392/339/?random=1" />
         </div>
         <div class="text3">
-          <h4>eventName</h4>
+          <h4>{event.eventName}</h4>
           <div class="line1 d-flex justify-content-between align-items-center mt-3 border-bottom">
             <h3>$ 990</h3>
             <div className="d-flex align-items-center">
@@ -80,7 +102,7 @@ const DetailCard = () => {
             <p>付款方式 : 信用卡 / ATM / ApplePay / LinePay</p>
           </div>
           <div class="line2 d-flex justify-content-between align-items-center border-bottom pb-3 pt-3">
-            <div className="h6-tc">台北市</div>
+            <div className="h6-tc">{event.eventLocation}</div>
             <h6>尚有名額</h6>
           </div>
           <div class="line3 d-flex  justify-content-between align-items-center border-bottom pb-3 pt-3">
@@ -98,8 +120,8 @@ const DetailCard = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 
-export default DetailCard
+export default withRouter(DetailCard)

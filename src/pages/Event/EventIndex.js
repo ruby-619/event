@@ -17,7 +17,7 @@ class EventIndex extends Component {
         <body className="bg1">
           <Carousel>
             <div className="eventCarousal">
-              <img src="../images/Event/womany.png" />
+              <img src="../images/Event/chang.jpg" />
               {/* <p className="legend">Legend 1</p> */}
             </div>
             <div className="eventCarousal">
