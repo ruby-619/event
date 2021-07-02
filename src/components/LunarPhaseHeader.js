@@ -12,7 +12,7 @@ const LunarPhaseHeader = () => {
           <div class="nav-bar-top d-flex">
             <div class="col-4"></div>
             <div class="nav-logo col-4 d-flex justify-content-center">
-              LOGO HERE
+            logo
             </div>
             <div class="nav-member-act col-4 d-flex justify-content-end">
               <div class="">

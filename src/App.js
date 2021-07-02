@@ -19,7 +19,7 @@ function App() {
           <Route path="/event-list">
             <EventList />
           </Route>
-          <Route path="/event-detail/:id">
+          <Route path="/event-detail/:id?">
             <EventDetail />
           </Route>
           <Route path="/">

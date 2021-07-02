@@ -88,7 +88,7 @@ const DetailCard = (props) => {
           <img src="https://picsum.photos/392/339/?random=1" />
         </div>
         <div class="text3">
-          <h4>{event.eventName}</h4>
+          <h4></h4>
           <div class="line1 d-flex justify-content-between align-items-center mt-3 border-bottom">
             <h3>$ 990</h3>
             <div className="d-flex align-items-center">
@@ -102,7 +102,7 @@ const DetailCard = (props) => {
             <p>付款方式 : 信用卡 / ATM / ApplePay / LinePay</p>
           </div>
           <div class="line2 d-flex justify-content-between align-items-center border-bottom pb-3 pt-3">
-            <div className="h6-tc">{event.eventLocation}</div>
+            <div className="h6-tc"></div>
             <h6>尚有名額</h6>
           </div>
           <div class="line3 d-flex  justify-content-between align-items-center border-bottom pb-3 pt-3">
