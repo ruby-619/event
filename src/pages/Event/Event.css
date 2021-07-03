@@ -1,7 +1,6 @@
 .bg1 {
   background-image: -webkit-gradient(linear, left top, left bottom, from(#f7f7ee), to(#fdd2bb));
   background-image: linear-gradient(#f7f7ee, #fdd2bb);
-  height: 3488px;
 }
 
 .bg2 {
@@ -238,7 +237,7 @@ h6 {
 .photo3 {
   width: 33vw;
   height: 60vh;
-  margin: 6vh 5vh 6vh 1vh;
+  margin: 15vh 5vh 15vh 1vh;
 }
 
 img {
@@ -248,7 +247,7 @@ img {
 
 .text3 {
   width: 35vw;
-  margin: 6vh;
+  margin: 15vh 6vh;
 }
 
 .Ebtn {
@@ -270,7 +269,7 @@ img {
   font-size: 18px;
   text-align: center;
   position: absolute;
-  bottom: 6vh;
+  bottom: 15vh;
 }
 
 .btn-border:hover {
@@ -282,7 +281,7 @@ img {
 
 .smallPhoto {
   height: 240px;
-  margin-top: 6vh;
+  margin-top: 15vh;
 }
 
 .sm {
@@ -324,5 +323,27 @@ img {
   height: 156vh;
   margin-top: 8vh;
   background-color: #fff;
+}
+
+.box {
+  height: 150px;
+  width: 150px;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+.box-middle-right {
+  -webkit-transform: translate(25px, 80px);
+          transform: translate(25px, 80px);
+}
+
+.box-middle-left {
+  -webkit-transform: translate(-25px, 80px);
+          transform: translate(-25px, 80px);
+}
+
+.box-bottom {
+  -webkit-transform: translateY(250px);
+          transform: translateY(250px);
 }
 /*# sourceMappingURL=Event.css.map */

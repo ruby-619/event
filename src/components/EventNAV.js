@@ -1,31 +1,44 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Route, withRouter, Link, Switch, matchPath } from 'react-router-dom'
+import OneOfCategory from '../pages/Event/components/OneOfCategory'
 
-const EventNAV = () => {
+const EventNAV = (props) => {
+  console.log(props.match.pathname)
+
+  const url = props.match.url
+  const path = props.match.path
   return (
     <div class="container">
       <div class="row">
-        <div class="Enav ">
+        <div class="Enav">
           <ul class="d-flex justify-content-center">
             <li>
-              <a href="">戶外</a>
+              <Link to={`${url}/outdoor`}>戶外</Link>
             </li>
             <li>
-              <a href="">藝文</a>
+              <Link to={`${url}/art`}>藝文</Link>
             </li>
             <li>
-              <a href="">講座</a>
+              <Link to={`${url}/lecture`}>講座</Link>
             </li>
             <li>
-              <a href="">手作</a>
+              <Link to={`${url}/handmade`}>手作</Link>
             </li>
             <li>
-              <a href="">品味</a>
+              <Link to={`${url}/taste`}>品味</Link>
             </li>
           </ul>
         </div>
+        <Switch>
+          <Route exact path={path}></Route>
+          {/* <Route path={`${path}/:type?/:id?`}></Route> */}
+          <Route path={`${path}/:type?/:id?`}>
+            <OneOfCategory />
+          </Route>
+        </Switch>
       </div>
     </div>
   )
 }
 
-export default EventNAV
+export default withRouter(EventNAV)

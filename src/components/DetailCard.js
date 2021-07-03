@@ -7,18 +7,18 @@ const DetailCard = (props) => {
 
   const [event, setEvent] = useState([
     {
-      id: '',
-      eventId: '',
-      eventName: '',
-      eventSubtitle: '',
-      eventDate: '',
-      eventDescription: '',
-      eventLocation: '',
-      eventImg: '',
-      eventPrice: '0',
-      eventCategory: '',
-      created_at: '',
-      updated_at: '',
+      // id: '',
+      // eventId: '',
+      // eventName: '',
+      // eventSubtitle: '',
+      // eventDate: '',
+      // eventDescription: '',
+      // eventLocation: '',
+      // eventImg: '',
+      // eventPrice: '0',
+      // eventCategory: '',
+      // created_at: '',
+      // updated_at: '',
     },
   ])
 
@@ -29,7 +29,9 @@ const DetailCard = (props) => {
     // setDataLoading(true)
 
     // 連接的伺服器資料網址
-    const url = 'http://localhost:6005/event?id'
+    const id = props.match.params.id
+    const url = 'http://localhost:6005/event/' + id
+    // const url = 'http://localhost:6005/event/:id?'
 
     // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
@@ -48,10 +50,10 @@ const DetailCard = (props) => {
   }
   useEffect(() => {
     getEventFromServer()
-    const newevent = event.find((v, i) => {
-      return props.match.params.id === v.id
-    })
-    setEvent(newevent)
+    // const newevent = event.find((v, i) => {
+    //   return props.match.params.id === v.id
+    // })
+    // setEvent(newevent)
   }, [])
 
   // 每次users資料有變動就會X秒後關掉載入指示
@@ -72,51 +74,74 @@ const DetailCard = (props) => {
   )
   return (
     <>
-      <div class="ecard3 mt-5 d-flex">
-        <div class="smallPhoto d-flex flex-column-reverse align-items-start">
-          <div className="sm">
-            <img src="https://picsum.photos/392/339/?random=1" />
-          </div>
-          <div className="sm">
-            <img src="https://picsum.photos/392/339/?random=2" />
-          </div>
-          <div className="sm">
-            <img src="https://picsum.photos/392/339/?random=3" />
-          </div>
-        </div>
-        <div class="photo3">
-          <img src="https://picsum.photos/392/339/?random=1" />
-        </div>
-        <div class="text3">
-          <h4></h4>
-          <div class="line1 d-flex justify-content-between align-items-center mt-3 border-bottom">
-            <h3>$ 990</h3>
-            <div className="d-flex align-items-center">
-              <div>
-                <BsBookmark size="22px" />
+      <div class="container">
+        <div class="row">
+          <div class="ecard3 mt-5 d-flex">
+            <div class="smallPhoto d-flex flex-column-reverse align-items-start">
+              <div className="sm">
+                <img src="https://picsum.photos/392/339/?random=1" />
               </div>
-              <div className="add">加入收藏</div>
+              <div className="sm">
+                <img src="https://picsum.photos/392/339/?random=2" />
+              </div>
+              <div className="sm">
+                <img src="https://picsum.photos/392/339/?random=3" />
+              </div>
+            </div>
+            <div class="photo3">
+              <img src="https://picsum.photos/392/339/?random=1" />
+            </div>
+            <div class="text3">
+              <h4>{event.eventName}</h4>
+              <div class="line1 d-flex justify-content-between align-items-center mt-3 border-bottom">
+                <h3>$ {event.eventPrice}</h3>
+                <div className="d-flex align-items-center">
+                  <div>
+                    <BsBookmark size="22px" />
+                  </div>
+                  <div className="add">加入收藏</div>
+                </div>
+              </div>
+              <div class="line2 d-flex justify-content-between align-items-center border-bottom pb-2 pt-4">
+                <p>付款方式 : 信用卡 / ATM / ApplePay / LinePay</p>
+              </div>
+              <div class="line2 d-flex justify-content-between align-items-center border-bottom pb-3 pt-3">
+                <div className="h6-tc"></div>
+                <h6>尚有名額</h6>
+              </div>
+              <div class="line3 d-flex  justify-content-between align-items-center border-bottom pb-3 pt-3">
+                <div className="h6-tc pr-3">數量 </div>
+                <div className="pl-3 Ebtn-group d-flex justify-content-between">
+                  <button className="Ebtn">-</button>
+                  <span>1</span>
+                  <button className="Ebtn">+</button>
+                </div>
+              </div>
+              <div class="line3 d-flex  justify-content-between align-items-center pb-3 pt-3">
+                <div class="mt-5">
+                  <button class="ebtn-border">我要報名</button>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="line2 d-flex justify-content-between align-items-center border-bottom pb-2 pt-4">
-            <p>付款方式 : 信用卡 / ATM / ApplePay / LinePay</p>
+        </div>
+      </div>
+      <div className="container">
+        <div class="row">
+          <h2 className="border-bottom mt17vh">{event.eventName}</h2>
+          <div className="photo474">
+            <img src="https://picsum.photos/474/339/?random=1" />
           </div>
-          <div class="line2 d-flex justify-content-between align-items-center border-bottom pb-3 pt-3">
-            <div className="h6-tc"></div>
-            <h6>尚有名額</h6>
-          </div>
-          <div class="line3 d-flex  justify-content-between align-items-center border-bottom pb-3 pt-3">
-            <div className="h6-tc pr-3">數量 </div>
-            <div className="pl-3 Ebtn-group d-flex justify-content-between">
-              <button className="Ebtn">-</button>
-              <span>1</span>
-              <button className="Ebtn">+</button>
-            </div>
-          </div>
-          <div class="line3 d-flex  justify-content-between align-items-center pb-3 pt-3">
-            <div class="mt-5">
-              <button class="ebtn-border">我要報名</button>
-            </div>
+          <div className="col-9 m-auto">{event.eventDescription}</div>
+        </div>
+      </div>
+      <div className="fluidPhoto">
+        <img src="../images/Event/180.jpeg" />
+      </div>
+      <div className="container">
+        <div class="row">
+          <div className="paper">
+            <div class="col-5 ">{event.eventNotice}</div>
           </div>
         </div>
       </div>

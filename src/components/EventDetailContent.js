@@ -19,7 +19,7 @@ const EventDetailContent = () => {
         </div>
       </div>
       <div className="fluidPhoto">
-        <img src="../Event/images/womany.png" />
+        <img src="../images/Event/180.jpeg" />
       </div>
       <div className="container">
         <div class="row">

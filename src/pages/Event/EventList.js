@@ -6,6 +6,7 @@ import { BsBookmark } from 'react-icons/bs'
 import EventNAV from '../../components/EventNAV'
 import Input from '../../components/Input'
 import './Event.scss'
+import OneOfCategory from './components/OneOfCategory'
 
 const EventList = () => {
   return (

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
 import { Carousel } from 'react-responsive-carousel'
 import LunarPhaseHeader from '../../components/LunarPhaseHeader'
+import LunarPhaseFooter from '../../components/LunarPhaseFooter'
 import EventCard from '../../components/HomePageCard'
 import { GiCampingTent, GiBookCover } from 'react-icons/gi'
 import { FaPaintBrush, FaHandPaper, FaWineGlass } from 'react-icons/fa'
@@ -36,23 +37,46 @@ class EventIndex extends Component {
             <EventCard />
             <h2 className="TextAlignCenter">分類找活動</h2>
             <div className="CategoryIcons">
-              <GiCampingTent
-                size="100px"
-                style={{ transform: `translate(${0}px, ${200}px)` }}
-              />
-              <FaPaintBrush
-                size="70px"
-                style={{ transform: `translate(${-40}px, ${100}px)` }}
-              />
-              <GiBookCover size="100px" />
-              <FaHandPaper
-                size="90px"
-                style={{ transform: `translate(${+40}px, ${100}px)` }}
-              />
-              <FaWineGlass
-                size="90px"
-                style={{ transform: `translate(${0}px, ${200}px)` }}
-              />
+              <div className="d-flex justify-content-center ">
+                <div className="box box-bottom">
+                  <GiCampingTent
+                    size="100px"
+                    style={{ transform: `translate(${0}px, ${25}px)` }}
+                  />
+                </div>
+              </div>
+              <div className="d-flex justify-content-center ">
+                <div className="box box-middle-left">
+                  <FaPaintBrush
+                    size="70px"
+                    style={{ transform: `translate(${0}px, ${40}px)` }}
+                  />
+                </div>
+              </div>
+              <div className="d-flex justify-content-center ">
+                <div className="box">
+                  <GiBookCover
+                    size="100px"
+                    style={{ transform: `translate(${0}px, ${30}px)` }}
+                  />
+                </div>
+              </div>
+              <div className="d-flex justify-content-center ">
+                <div className="box box-middle-right">
+                  <FaHandPaper
+                    size="90px"
+                    style={{ transform: `translate(${-5}px, ${30}px)` }}
+                  />
+                </div>
+              </div>
+              <div className="d-flex justify-content-center ">
+                <div className="box box-bottom">
+                  <FaWineGlass
+                    size="90px"
+                    style={{ transform: `translate(${0}px, ${30}px)` }}
+                  />
+                </div>
+              </div>
             </div>
             <div className="WaveBackground">
               <svg
@@ -85,6 +109,7 @@ class EventIndex extends Component {
             </div>
           </div>
         </body>
+        <LunarPhaseFooter />
       </>
     )
   }

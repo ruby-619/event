@@ -9,13 +9,16 @@ function App() {
   return (
     <Router>
       <>
-        <Link to="/">EventIndex</Link>
-        <Link to="/carousel1">Carousel1</Link>
-        <Link to="/event-list">EventList</Link>
-        <Link to="/event-detail">EventDetail</Link>
+        {/* <Link to="/">EventIndex</Link> */}
+        {/* <Link to="/carousel1">Carousel1</Link> */}
+        {/* <Link to="/event-list">EventList</Link>
+        <Link to="/event-detail">EventDetail</Link> */}
 
         {/* 路由表 */}
         <Switch>
+          <Route path="/event-list">
+            <EventList />
+          </Route>
           <Route path="/event-list">
             <EventList />
           </Route>
