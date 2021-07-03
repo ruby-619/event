@@ -89,7 +89,7 @@ const DetailCard = (props) => {
               </div>
             </div>
             <div class="photo3">
-              <img src="https://picsum.photos/392/339/?random=1" />
+            <img src={event.eventImg} />
             </div>
             <div class="text3">
               <h4>{event.eventName}</h4>
@@ -136,7 +136,7 @@ const DetailCard = (props) => {
         </div>
       </div>
       <div className="fluidPhoto">
-        <img src="../images/Event/180.jpeg" />
+        <img src={event.eventImg} />
       </div>
       <div className="container">
         <div class="row">

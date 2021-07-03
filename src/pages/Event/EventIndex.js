@@ -40,6 +40,7 @@ class EventIndex extends Component {
               <div className="d-flex justify-content-center ">
                 <div className="box box-bottom">
                   <GiCampingTent
+                    color="#FDD2BB"
                     size="100px"
                     style={{ transform: `translate(${0}px, ${25}px)` }}
                   />
@@ -48,6 +49,7 @@ class EventIndex extends Component {
               <div className="d-flex justify-content-center ">
                 <div className="box box-middle-left">
                   <FaPaintBrush
+                    color="#FDD2BB"
                     size="70px"
                     style={{ transform: `translate(${0}px, ${40}px)` }}
                   />
@@ -56,6 +58,7 @@ class EventIndex extends Component {
               <div className="d-flex justify-content-center ">
                 <div className="box">
                   <GiBookCover
+                    color="#FDD2BB"
                     size="100px"
                     style={{ transform: `translate(${0}px, ${30}px)` }}
                   />
@@ -64,6 +67,7 @@ class EventIndex extends Component {
               <div className="d-flex justify-content-center ">
                 <div className="box box-middle-right">
                   <FaHandPaper
+                    color="#FDD2BB"
                     size="90px"
                     style={{ transform: `translate(${-5}px, ${30}px)` }}
                   />
@@ -72,6 +76,7 @@ class EventIndex extends Component {
               <div className="d-flex justify-content-center ">
                 <div className="box box-bottom">
                   <FaWineGlass
+                    color="#FDD2BB"
                     size="90px"
                     style={{ transform: `translate(${0}px, ${30}px)` }}
                   />

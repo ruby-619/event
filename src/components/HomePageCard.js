@@ -63,10 +63,10 @@ const HomePageCard = () => {
                   </div>
                   <div class="HomePageCardTitle">{v.eventName}</div>
                 </div>
-                <div class="HomePageCardTitle">
-                  <img src="https://picsum.photos/300/380/?random=4" />
+                <div class="HomePageCardPhoto">
+                  <img src={v.eventImg} />
                 </div>
-                <div class="HomePageCardContent">{v.eventSubtitle}</div>
+                <div class="HomePageCardContent TextAlignCenter">{v.eventSubtitle}</div>
                 <div class="HomePageCardRegister">報名中</div>
               </div>
             </>
