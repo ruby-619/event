@@ -40,19 +40,19 @@ const LunarPhaseHeader = () => {
         <div class="nav-bar-bottom">
           <ul class="d-flex justify-content-around col-11 mx-auto mt-1">
             <li>
-              <a href="#shop">SHOP</a>
+              <Link to="#shop">SHOP</Link>
             </li>
             <li>
-              <a href="#article">ARTICLE</a>
+              <Link to="#article">ARTICLE</Link>
             </li>
             <li>
-              <a href="#order">ORDER</a>
+              <Link to="#order">ORDER</Link>
             </li>
             <li>
-              <a href="#event">EVENT</a>
+              <Link to="#event">EVENT</Link>
             </li>
             <li>
-              <a href="#join-us">JOIN US</a>
+              <Link to="#join-us">JOIN US</Link>
             </li>
           </ul>
         </div>

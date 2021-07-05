@@ -10,7 +10,7 @@
 
 .eventCarousal {
   width: 100%;
-  height: 60vh;
+  height: 70vh;
 }
 
 .eventCarousal img {
@@ -73,7 +73,7 @@ img {
 }
 
 .Empty {
-  height: 80px;
+  height: 50px;
   border-bottom: #383844 1px solid;
   margin-bottom: 25px;
 }
@@ -345,5 +345,9 @@ img {
 .box-bottom {
   -webkit-transform: translateY(250px);
           transform: translateY(250px);
+}
+
+.EventDescriptionLineHeight {
+  line-height: 32px;
 }
 /*# sourceMappingURL=Event.css.map */

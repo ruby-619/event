@@ -4,6 +4,7 @@ import EventIndex from './pages/Event/EventIndex'
 import Carousel1 from './components/Carousel1'
 import EventList from './pages/Event/EventList'
 import EventDetail from './pages/Event/EventDetail'
+import EventIndex2 from './pages/Event/EventIndex2'
 
 function App() {
   return (
@@ -19,21 +20,18 @@ function App() {
           <Route path="/event-list">
             <EventList />
           </Route>
-          <Route path="/event-list">
-            <EventList />
-          </Route>
           <Route path="/event-detail/:id?">
             <EventDetail />
           </Route>
           <Route path="/">
-            <EventIndex renderItem />
+            <EventIndex2 renderItem />
           </Route>
           <Route path="/Carousel1">
             <Carousel1 renderItem />
           </Route>
           {/* 網站首頁: exact:精確比對 */}
           <Route exact path="/">
-            <EventIndex />
+            <EventIndex2 />
           </Route>
         </Switch>
       </>

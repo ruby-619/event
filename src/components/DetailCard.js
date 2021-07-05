@@ -30,7 +30,7 @@ const DetailCard = (props) => {
 
     // 連接的伺服器資料網址
     const id = props.match.params.id
-    const url = 'http://localhost:6005/event/' + id
+    const url = 'http://localhost:3000/event/' + id
     // const url = 'http://localhost:6005/event/:id?'
 
     // 注意header資料格式要設定，伺服器才知道是json格式
@@ -89,7 +89,7 @@ const DetailCard = (props) => {
               </div>
             </div>
             <div class="photo3">
-            <img src={event.eventImg} />
+              <img src={event.eventImg} />
             </div>
             <div class="text3">
               <h4>{event.eventName}</h4>
@@ -102,7 +102,7 @@ const DetailCard = (props) => {
                   <div className="add">加入收藏</div>
                 </div>
               </div>
-              <div class="line2 d-flex justify-content-between align-items-center border-bottom pb-2 pt-4">
+              <div className="line2 d-flex justify-content-between align-items-center border-bottom pb-2 pt-4">
                 <p>付款方式 : 信用卡 / ATM / ApplePay / LinePay</p>
               </div>
               <div class="line2 d-flex justify-content-between align-items-center border-bottom pb-3 pt-3">
@@ -117,8 +117,8 @@ const DetailCard = (props) => {
                   <button className="Ebtn">+</button>
                 </div>
               </div>
-              <div class="line3 d-flex  justify-content-between align-items-center pb-3 pt-3">
-                <div class="mt-5">
+              <div className="line3 d-flex  justify-content-between align-items-center pb-3 pt-3">
+                <div className="mt-5">
                   <button class="ebtn-border">我要報名</button>
                 </div>
               </div>
@@ -127,21 +127,35 @@ const DetailCard = (props) => {
         </div>
       </div>
       <div className="container">
-        <div class="row">
+        <div className="row">
           <h2 className="border-bottom mt17vh">{event.eventName}</h2>
           <div className="photo474">
             <img src="https://picsum.photos/474/339/?random=1" />
           </div>
-          <div className="col-9 m-auto">{event.eventDescription}</div>
+          <div className="col-9 m-auto p-tc EventDescriptionLineHeight">
+            {/* {event.eventDescription}
+            猶如在花園中嬉戲，
+            <br />
+            幻想與心上人漫舞的浪漫少女，
+            <br />
+            擺放於家中展現溫柔與生氣。 */}
+            <div
+              className="col-9 m-auto p-tc EventDescriptionLineHeight"
+              dangerouslySetInnerHTML={{ __html: event.eventDescription }}
+            ></div>
+          </div>
         </div>
       </div>
       <div className="fluidPhoto">
         <img src={event.eventImg} />
       </div>
       <div className="container">
-        <div class="row">
+        <div className="row">
           <div className="paper">
-            <div class="col-5 ">{event.eventNotice}</div>
+            {/* <div className="col-5 NoticeFont">{event.eventNotice}</div> */}
+            <div
+              dangerouslySetInnerHTML={{ __html: '<p>{event.eventNotice}</p>' }}
+            ></div>
           </div>
         </div>
       </div>

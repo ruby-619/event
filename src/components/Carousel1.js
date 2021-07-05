@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Carousel } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 const Carousel1 = () => {
   const [index, setIndex] = useState(0)
@@ -9,22 +10,22 @@ const Carousel1 = () => {
   }
   return (
     <div>
-      <Carousel activeIndex={index} onSelect={handleSelect}>
-        <Carousel.Item>
+      <Carousel activeIndex={index} onSelect={handleSelect} className="mt-5">
+        <Carousel.Item interval={1500}> 
           <img
-            className="d-block w-100 h-50"
-            src="https://picsum.photos/800/500/?random=1"
+            className="d-block eventCarousal"
+            src="../images/Event/outdoor.jpeg"
             alt="First slide"
           />
           <Carousel.Caption>
-            <h3>First slide label</h3>
+            <h3>女孩的第一座百岳</h3>
             <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
           </Carousel.Caption>
         </Carousel.Item>
-        <Carousel.Item>
+        <Carousel.Item interval={1500}>
           <img
-            className="d-block w-100 h-50"
-            src="https://picsum.photos/800/500/?random=2"
+            className="d-block eventCarousal"
+            src="../images/Event/drawing.jpeg"
             alt="Second slide"
           />
 
@@ -33,12 +34,14 @@ const Carousel1 = () => {
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           </Carousel.Caption>
         </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100 h-50"
-            src="https://picsum.photos/800/500/?random=3"
-            alt="Third slide"
-          />
+        <Carousel.Item interval={1500}>
+          <Link to="/event-detail/1">
+            <img
+              className="d-block eventCarousal"
+              src="../images/Event/womany.png"
+              alt="Third slide"
+            />
+          </Link>
 
           <Carousel.Caption>
             <h3>Third slide label</h3>

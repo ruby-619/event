@@ -31,7 +31,6 @@ const EventNAV = (props) => {
         </div>
         <Switch>
           <Route exact path={path}></Route>
-          {/* <Route path={`${path}/:type?/:id?`}></Route> */}
           <Route path={`${path}/:type?/:id?`}>
             <OneOfCategory />
           </Route>

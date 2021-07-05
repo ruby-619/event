@@ -12,8 +12,8 @@ const EventList = () => {
   return (
     <div>
       <LunarPhaseHeader />
-      <body className="bg2">
-        <h2 className="fs-36">Event</h2>
+      <body className="bg2 mt-5">
+        <h2 className="mb-5">Event</h2>
         <EventNAV />
         <Input />
         <EventCard />

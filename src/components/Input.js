@@ -15,6 +15,7 @@ const Input = () => {
     '花蓮',
     '台東',
   ]
+
   return (
     <div>
       <div class="container">
@@ -25,7 +26,7 @@ const Input = () => {
               className="eSELECT p-2 bd-highlight"
               value={seletedLocation}
               onChange={(e) => {
-                setSeletedOption(e.target.value)
+                setseletedLocation(e.target.value)
               }}
             >
               <option value="">請選擇地點</option>

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 // import LunarPhaseHeader from '../../../components/LunarPhaseHeader'
 // import EventNAV from '../../../components/EventNAV'
 import EventCard from '../../../components/EventCard'
+import EventCategoryCard from '../../../components/EventCategoryCard'
 
 const OneOfCategory = () => {
   const [event, setEvent] = useState([])
@@ -14,7 +15,7 @@ const OneOfCategory = () => {
     setDataLoading(true)
 
     // 連接的伺服器資料網址
-    const url = 'http://localhost:6005/event/event-Category'
+    const url = 'http://localhost:6005/event/event-category'
 
     // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
@@ -58,7 +59,7 @@ const OneOfCategory = () => {
       <body className="bg2">
         {/* <h2 className="fs-36">Event</h2> */}
         {/* <EventNAV /> */}
-        <EventCard />
+        <EventCategoryCard />
       </body>
     </div>
   )

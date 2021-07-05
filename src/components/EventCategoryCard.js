@@ -3,10 +3,8 @@ import { BsBookmark } from 'react-icons/bs'
 import { GoLocation } from 'react-icons/go'
 import { IoMdCalendar } from 'react-icons/io'
 
-const EventCard = () => {
-  const [event, setEvent] = useState([]) //初始資料
-  const [displayProducts, setDisplayProducts] = useState([]) //篩過之後的資料
-  const [searchWord, setSearchWord] = useState('')
+const EventCategoryCard = () => {
+  const [event, setEvent] = useState([])
   const [dataLoading, setDataLoading] = useState(false)
   var moment = require('moment')
 
@@ -15,7 +13,7 @@ const EventCard = () => {
     setDataLoading(true)
 
     // 連接的伺服器資料網址
-    const url = 'http://localhost:3000/event'
+    const url = 'http://localhost:6005/event/event-category'
 
     // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
@@ -53,19 +51,6 @@ const EventCard = () => {
       </div>
     </>
   )
-  const handleSearch = (event, searchWord) => {
-    let newEvent = []
-
-    if (searchWord) {
-      newEvent = event.filter((event) => {
-        return event.name.includes(searchWord)
-      })
-    } else {
-      newEvent = [...event]
-    }
-
-    return newEvent
-  }
   return (
     <div>
       <body className="bg2">
@@ -102,54 +87,55 @@ const EventCard = () => {
                 </div>
               </div>
             </div>
-            {event?.data?.map((v, i) => {
-              return (
-                <div class="ecard2 mt-5 d-flex bg-pink">
-                  <div class="photo2">
-                    <img src={v.eventImg} />
+            {event.length &&
+              event.map((v, i) => {
+                return (
+                  <div class="ecard2 mt-5 d-flex bg-pink">
+                    <div class="photo2">
+                      <img src="https://picsum.photos/392/339/?random=2" />
+                    </div>
+                    <div class="text">
+                      <h4>{v.eventName}</h4>
+                      <div class="line2 d-flex justify-content-between align-items-center border-bottom pb-3 pt-3">
+                        <div className="h6-tc d-flex align-items-center">
+                          <div>
+                            <IoMdCalendar size="25px" />
+                          </div>
+                          活動日期：
+                          {moment(v.eventDate).format('YYYY-MM-DD')}
+                          <span>({moment(v.eventDate).format('dddd')})</span>
+                        </div>
+                      </div>
+                      <div class="line1 d-flex justify-content-between align-items-center mt-3 border-bottom">
+                        <h3>$ {v.eventPrice}</h3>
+                        <div className="d-flex align-items-center">
+                          <div>
+                            <BsBookmark size="22px" />
+                          </div>
+                          <div className="add">加入收藏</div>
+                        </div>
+                      </div>
+                      <div class="line2 d-flex justify-content-between align-items-center border-bottom pb-3 pt-3">
+                        <div className="h6-tc d-flex">
+                          <div>
+                            <GoLocation size="25px" />
+                          </div>
+                          {v.eventLocation}
+                        </div>
+                        <h6>尚有名額</h6>
+                      </div>
+                      <div class="line3 d-flex mt-3">
+                        <div className="pr-3">{v.eventCategory} </div>
+                        <div>|</div>
+                        <div className="pl-3">一人成團</div>
+                      </div>
+                      <div className="more">
+                        <a href="#">MORE</a>
+                      </div>
+                    </div>
                   </div>
-                  <div class="text">
-                    <h4>{v.eventName}</h4>
-                    <div class="line2 d-flex justify-content-between align-items-center border-bottom pb-3 pt-3">
-                      <div className="h6-tc d-flex align-items-center">
-                        <div>
-                          <IoMdCalendar size="25px" />
-                        </div>
-                        活動日期：
-                        {moment(v.eventDate).format('YYYY-MM-DD')}
-                        <span>({moment(v.eventDate).format('dddd')})</span>
-                      </div>
-                    </div>
-                    <div class="line1 d-flex justify-content-between align-items-center mt-3 border-bottom">
-                      <h3>$ {v.eventPrice}</h3>
-                      <div className="d-flex align-items-center">
-                        <div>
-                          <BsBookmark size="22px" />
-                        </div>
-                        <div className="add">加入收藏</div>
-                      </div>
-                    </div>
-                    <div class="line2 d-flex justify-content-between align-items-center border-bottom pb-3 pt-3">
-                      <div className="h6-tc d-flex">
-                        <div>
-                          <GoLocation size="25px" />
-                        </div>
-                        {v.eventLocation}
-                      </div>
-                      <h6>尚有名額</h6>
-                    </div>
-                    <div class="line3 d-flex mt-3">
-                      <div className="pr-3">{v.eventCategory} </div>
-                      <div>|</div>
-                      <div className="pl-3">一人成團</div>
-                    </div>
-                    <div className="more">
-                      <a href="#">MORE</a>
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
+                )
+              })}
           </div>
         </div>
       </body>
@@ -157,4 +143,4 @@ const EventCard = () => {
   )
 }
 
-export default EventCard
+export default EventCategoryCard
