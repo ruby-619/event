@@ -109,9 +109,9 @@ const EventListCard = () => {
   useEffect(() => {
     let newEvent = []
 
-    newEvent = handleSearch(event, seletedLocation)
+    newEvent = handleSearch(event, searchWord)
     newEvent = handleSort(event, sortBy)
-    newEvent = handleLocation(event, searchWord)
+    newEvent = handleLocation(event, seletedLocation)
 
     setdisplayEvent(newEvent)
 
