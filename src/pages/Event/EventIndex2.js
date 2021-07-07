@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
-import { Carousel } from 'react-responsive-carousel'
+// import { Carousel } from 'react-responsive-carousel'
 import LunarPhaseHeader from '../../components/LunarPhaseHeader'
 import LunarPhaseFooter from '../../components/LunarPhaseFooter'
 import EventCard from '../../components/HomePageCard'

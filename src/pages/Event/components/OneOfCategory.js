@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 // import React from 'react'
 // import LunarPhaseHeader from '../../../components/LunarPhaseHeader'
 // import EventNAV from '../../../components/EventNAV'
-import EventCard from '../../../components/EventCard'
+import EventCard from '../../../components/EventListCard'
 import EventCategoryCard from '../../../components/EventCategoryCard'
 
 const OneOfCategory = () => {

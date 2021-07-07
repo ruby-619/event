@@ -10,24 +10,28 @@ const Carousel1 = () => {
   }
   return (
     <div>
-      <Carousel activeIndex={index} onSelect={handleSelect} className="mt-5">
-        <Carousel.Item interval={1500}> 
-          <img
-            className="d-block eventCarousal"
-            src="../images/Event/outdoor.jpeg"
-            alt="First slide"
-          />
+      <Carousel activeIndex={index} onSelect={handleSelect}>
+        <Carousel.Item interval={1500}>
+          <Link to="/event-detail/1">
+            <img
+              className="d-block eventCarousal"
+              src="../img/Event/outdoor.jpeg"
+              alt="First slide"
+            />
+          </Link>
           <Carousel.Caption>
             <h3>女孩的第一座百岳</h3>
             <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item interval={1500}>
-          <img
-            className="d-block eventCarousal"
-            src="../images/Event/drawing.jpeg"
-            alt="Second slide"
-          />
+          <Link to="/event-detail/1">
+            <img
+              className="d-block eventCarousal"
+              src="../img/Event/drawing.jpeg"
+              alt="Second slide"
+            />
+          </Link>
 
           <Carousel.Caption>
             <h3>Second slide label</h3>
@@ -38,7 +42,7 @@ const Carousel1 = () => {
           <Link to="/event-detail/1">
             <img
               className="d-block eventCarousal"
-              src="../images/Event/womany.png"
+              src="../img/Event/womany.png"
               alt="Third slide"
             />
           </Link>

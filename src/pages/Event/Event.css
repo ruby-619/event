@@ -5,12 +5,11 @@
 
 .bg2 {
   background-color: #f7f7ee;
-  height: 4056px;
 }
 
 .eventCarousal {
   width: 100%;
-  height: 70vh;
+  height: 60vh;
 }
 
 .eventCarousal img {
@@ -46,7 +45,7 @@
   height: 380px;
 }
 
-img {
+.HomePageCardPhoto img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -115,9 +114,11 @@ svg {
   margin: 6vh;
 }
 
-img {
+.photo2 img {
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .text {
@@ -237,17 +238,19 @@ h6 {
 .photo3 {
   width: 33vw;
   height: 60vh;
-  margin: 15vh 5vh 15vh 1vh;
+  margin: 10vh 5vh 15vh 1vh;
 }
 
-img {
+.photo3 img {
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .text3 {
   width: 35vw;
-  margin: 15vh 6vh;
+  margin: 10vh 6vh;
 }
 
 .Ebtn {
@@ -281,7 +284,7 @@ img {
 
 .smallPhoto {
   height: 240px;
-  margin-top: 15vh;
+  margin-top: 10vh;
 }
 
 .sm {
@@ -316,6 +319,8 @@ img {
 .fluidPhoto img {
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .paper {
@@ -349,5 +354,10 @@ img {
 
 .EventDescriptionLineHeight {
   line-height: 32px;
+}
+
+.eventDetailContent {
+  margin: 10vw;
+  line-height: 40px;
 }
 /*# sourceMappingURL=Event.css.map */

@@ -1,16 +1,26 @@
 import React, { useState, useEffect } from 'react'
+import DateSearch from '../pages/Event/components/Filter/DateSearch'
+import Location from '../pages/Event/components/Filter/Location'
+import SearchBar from '../pages/Event/components/Filter/SearchBar'
+import Sort from '../pages/Event/components/Filter/Sort'
 import { BsBookmark } from 'react-icons/bs'
 import { GoLocation } from 'react-icons/go'
 import { IoMdCalendar } from 'react-icons/io'
 
-const EventCard = () => {
+const EventListCard = () => {
   const [event, setEvent] = useState([]) //初始資料
-  const [displayProducts, setDisplayProducts] = useState([]) //篩過之後的資料
-  const [searchWord, setSearchWord] = useState('')
-  const [dataLoading, setDataLoading] = useState(false)
-  var moment = require('moment')
+  const [displayEvent, setdisplayEvent] = useState([]) //篩過之後的資料
 
-  async function getEventFromServer(id) {
+  const [dateSearch, setdateSearch] = useState('') // 日期搜尋
+  const [seletedLocation, setseletedLocation] = useState('') // 地點搜尋
+  const [searchWord, setSearchWord] = useState('') // 關鍵字搜尋
+  const [sortBy, setSortBy] = useState('')
+
+  const [dataLoading, setDataLoading] = useState(false)
+  var moment = require('moment') //日期格式化需要引入
+
+  // 初始化資料
+  async function getEventFromServer() {
     // 開啟載入指示
     setDataLoading(true)
 
@@ -29,20 +39,86 @@ const EventCard = () => {
     const response = await fetch(request)
     const data = await response.json()
 
-    console.log(data)
+    console.log(data.data)
     // 設定資料
-    setEvent(data)
+    setEvent(data.data)
+    setdisplayEvent(data.data)
   }
   useEffect(() => {
     getEventFromServer()
   }, [])
 
+  // 四種篩選法
+  // 1.依照關鍵字
+  
+  const handleSearch = (event, searchWord) => {
+    let newEvent = []
+
+    if (searchWord) {
+      newEvent = event.filter((e) => {
+        return e.eventName.includes(searchWord)
+      })
+    } else {
+      newEvent = [...event]
+    }
+
+    return newEvent
+  }
+  // 2.依照價格排序
+  const handleSort = (event, sortBy) => {
+    let newEvent = [...event]
+
+    // 以價格排序-由少至多
+    if (sortBy === '1') {
+      newEvent = [...newEvent].sort((a, b) => a.eventPrice - b.eventPrice)
+    }
+
+    if (sortBy === '2') {
+      newEvent = [...newEvent].sort((a, b) => b.eventPrice - a.eventPrice)
+    }
+
+    if (sortBy === '' && newEvent.length > 0) {
+      newEvent = [...newEvent].sort((a, b) => a.id - b.id)
+    }
+
+    return newEvent
+  }
+  // 3.地區間選項
+  const handleLocation = (event, seletedLocation) => {
+    let newEvent = [...event]
+    switch (seletedLocation) {
+      case '台北市':
+        newEvent = [...newEvent].filter((e) => {
+          return (e.eventLocation = '台北市')
+        })
+        break
+      case '桃園市':
+        newEvent = [...newEvent].filter((e) => {
+          return (e.eventLocation = '桃園市')
+        })
+        break
+      // 指所有的產品都出現
+      default:
+        break
+    }
+
+    return newEvent
+  }
+
   // 每次users資料有變動就會X秒後關掉載入指示
   useEffect(() => {
+    let newEvent = []
+
+    newEvent = handleSearch(event, seletedLocation)
+    newEvent = handleSort(event, sortBy)
+    newEvent = handleLocation(event, searchWord)
+
+    setdisplayEvent(newEvent)
+
     setTimeout(() => {
       setDataLoading(false)
     }, 1000)
-  }, [event])
+  }, [event, searchWord, sortBy])
 
   const loading = (
     <>
@@ -53,21 +129,16 @@ const EventCard = () => {
       </div>
     </>
   )
-  const handleSearch = (event, searchWord) => {
-    let newEvent = []
 
-    if (searchWord) {
-      newEvent = event.filter((event) => {
-        return event.name.includes(searchWord)
-      })
-    } else {
-      newEvent = [...event]
-    }
-
-    return newEvent
-  }
   return (
     <div>
+      <DateSearch dateSearch={dateSearch} setdateSearch={setdateSearch} />
+      <Location
+        seletedLocation={seletedLocation}
+        setseletedLocation={setseletedLocation}
+      />
+      <SearchBar searchWord={searchWord} setSearchWord={setSearchWord} />
+      <Sort sortBy={sortBy} setSortBy={setSortBy} />
       <body className="bg2">
         <div class="container">
           <div class="row">
@@ -102,7 +173,7 @@ const EventCard = () => {
                 </div>
               </div>
             </div>
-            {event?.data?.map((v, i) => {
+            {event.map((v, i) => {
               return (
                 <div class="ecard2 mt-5 d-flex bg-pink">
                   <div class="photo2">
@@ -157,4 +228,4 @@ const EventCard = () => {
   )
 }
 
-export default EventCard
+export default EventListCard

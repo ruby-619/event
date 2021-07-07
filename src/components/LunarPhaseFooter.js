@@ -8,7 +8,7 @@ const LunarPhaseFooter = () => {
           <a href="">
             <img
               class="footer-logo"
-              src="../images/logo-m-dark.svg"
+              src="../img/logo-m-dark.svg"
               alt="lunar_phase"
             />
           </a>
