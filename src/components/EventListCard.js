@@ -6,6 +6,7 @@ import Sort from '../pages/Event/components/Filter/Sort'
 import { BsBookmark } from 'react-icons/bs'
 import { GoLocation } from 'react-icons/go'
 import { IoMdCalendar } from 'react-icons/io'
+import { NetworkAuthenticationRequire } from 'http-errors'
 
 const EventListCard = () => {
   const [event, setEvent] = useState([]) //初始資料
@@ -50,18 +51,21 @@ const EventListCard = () => {
 
   // 四種篩選法
   // 1.依照關鍵字
-  
+
   const handleSearch = (event, searchWord) => {
-    let newEvent = []
+   // console.log(searchWord)
+    let newEvent = [...event]
 
     if (searchWord) {
       newEvent = event.filter((e) => {
+       // console.log(e.eventName.includes(searchWord))
         return e.eventName.includes(searchWord)
       })
     } else {
       newEvent = [...event]
     }
 
+    //console.log(newEvent)
     return newEvent
   }
   // 2.依照價格排序
@@ -89,12 +93,12 @@ const EventListCard = () => {
     switch (seletedLocation) {
       case '台北市':
         newEvent = [...newEvent].filter((e) => {
-          return (e.eventLocation = '台北市')
+          return (e.eventLocation === '台北市')
         })
         break
       case '桃園市':
         newEvent = [...newEvent].filter((e) => {
-          return (e.eventLocation = '桃園市')
+          return (e.eventLocation === '桃園市')
         })
         break
       // 指所有的產品都出現
@@ -107,12 +111,15 @@ const EventListCard = () => {
 
   // 每次users資料有變動就會X秒後關掉載入指示
   useEffect(() => {
-    let newEvent = []
+    console.log(searchWord)
+    let newEvent = [...event]
 
-    newEvent = handleSearch(event, searchWord)
-    newEvent = handleSort(event, sortBy)
-    newEvent = handleLocation(event, seletedLocation)
-
+    newEvent = handleSearch(newEvent, searchWord)
+    console.log(newEvent)
+    newEvent = handleSort(newEvent, sortBy)
+    console.log(newEvent)
+    newEvent = handleLocation(newEvent, seletedLocation)
+console.log(newEvent)
     setdisplayEvent(newEvent)
 
     setTimeout(() => {
@@ -173,7 +180,7 @@ const EventListCard = () => {
                 </div>
               </div>
             </div>
-            {event.map((v, i) => {
+            {displayEvent.map((v, i) => {
               return (
                 <div class="ecard2 mt-5 d-flex bg-pink">
                   <div class="photo2">
