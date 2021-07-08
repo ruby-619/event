@@ -2,18 +2,20 @@ import React, { useState, useEffect } from 'react'
 import { BsBookmark } from 'react-icons/bs'
 import { GoLocation } from 'react-icons/go'
 import { IoMdCalendar } from 'react-icons/io'
+import { Route, withRouter, Link, Switch, matchPath } from 'react-router-dom'
 
 const EventCategoryCard = () => {
   const [event, setEvent] = useState([])
   const [dataLoading, setDataLoading] = useState(false)
   var moment = require('moment')
 
-  async function getEventFromServer(id) {
+  async function getEventFromServer() {
     // 開啟載入指示
     setDataLoading(true)
 
     // 連接的伺服器資料網址
-    const url = 'http://localhost:6005/event/event-category'
+    
+    const url = 'http://localhost:3000/event/category/:eCategory'
 
     // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
@@ -57,7 +59,7 @@ const EventCategoryCard = () => {
         <div class="container">
           <div class="row">
             {/* 首張卡 */}
-            <div class="ecard2 mt-5 d-flex">
+            {/* <div class="ecard2 mt-5 d-flex">
               <div class="photo2">
                 <img src="https://picsum.photos/392/339/?random=1" />
               </div>
@@ -86,9 +88,9 @@ const EventCategoryCard = () => {
                   <a href="#">MORE</a>
                 </div>
               </div>
-            </div>
-            {event.length &&
-              event.map((v, i) => {
+            </div> */}
+            {
+              event?.data?.map((v, i) => {
                 return (
                   <div class="ecard2 mt-5 d-flex bg-pink">
                     <div class="photo2">
@@ -143,4 +145,4 @@ const EventCategoryCard = () => {
   )
 }
 
-export default EventCategoryCard
+export default withRouter(EventCategoryCard)

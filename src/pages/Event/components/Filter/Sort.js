@@ -11,9 +11,9 @@ function Sort(props) {
           setSortBy(e.target.value)
         }}
       >
-        <option value="">依上架順序</option>
-        <option value="1">由新到舊</option>
-        <option value="2">由舊到新</option>
+        <option value="">依活動價格</option>
+        <option value="1">由高到低</option>
+        <option value="2">由低到高</option>
       </select>
     </>
   )

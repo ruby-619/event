@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link ,withRouter } from 'react-router-dom'
 import LunarPhaseHeader from '../../components/LunarPhaseHeader'
 import EventListCard from '../../components/EventListCard'
 import { BsBookmark } from 'react-icons/bs'
@@ -8,7 +8,8 @@ import Input from '../../components/Input'
 import './Event.scss'
 // import OneOfCategory from './components/OneOfCategory'
 
-const EventList = () => {
+const EventList = (props) => {
+  console.log(props)
   return (
     <div>
       <LunarPhaseHeader />
@@ -22,4 +23,4 @@ const EventList = () => {
   )
 }
 
-export default EventList
+export default withRouter(EventList)

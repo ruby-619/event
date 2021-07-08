@@ -15,7 +15,7 @@ const Location = (props) => {
   ]
   return (
     <div>
-      <select
+      {/* <select
         className="eSELECT p-2 bd-highlight"
         value={seletedLocation}
         onChange={(e) => {
@@ -30,6 +30,17 @@ const Location = (props) => {
             </>
           )
         })}
+      </select> */}
+      <select
+        className="eSELECT bd-highlight"
+        value={seletedLocation}
+        onChange={(e) => {
+          setseletedLocation(e.target.value)
+        }}
+      >
+        <option value="">請選擇地點</option>
+        <option value="1">台北市</option>
+        <option value="2">宜蘭</option>
       </select>
     </div>
   )

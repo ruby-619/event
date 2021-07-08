@@ -1,12 +1,13 @@
 import { json } from 'body-parser'
 import React, { useState, useEffect } from 'react'
 
-
 import { BsBookmark } from 'react-icons/bs'
 import { withRouter } from 'react-router-dom'
 
 const DetailCard = (props) => {
   console.log(props)
+  const [total, setTotal] = useState(0)
+  const [addToCollection, setaddToCollection] = useState('')
 
   const [event, setEvent] = useState([
     {
@@ -106,7 +107,13 @@ const DetailCard = (props) => {
                 <h3>$ {event.eventPrice}</h3>
                 <div className="d-flex align-items-center">
                   <div>
-                    <BsBookmark size="22px" />
+                    <BsBookmark
+                      size="22px"
+                      color="addToCollection"
+                      onMouseDown={() => {
+                        setaddToCollection('#afa')
+                      }}
+                    />
                   </div>
                   <div className="add">加入收藏</div>
                 </div>
@@ -121,9 +128,23 @@ const DetailCard = (props) => {
               <div class="line3 d-flex  justify-content-between align-items-center border-bottom pb-3 pt-3">
                 <div className="h6-tc pr-3">數量 </div>
                 <div className="pl-3 Ebtn-group d-flex justify-content-between">
-                  <button className="Ebtn">-</button>
-                  <span>1</span>
-                  <button className="Ebtn">+</button>
+                  <button
+                    className="Ebtn"
+                    onClick={() => {
+                      setTotal(total - 1)
+                    }}
+                  >
+                    -
+                  </button>
+                  <span>{total}</span>
+                  <button
+                    className="Ebtn"
+                    onClick={() => {
+                      setTotal(total + 1)
+                    }}
+                  >
+                    +
+                  </button>
                 </div>
               </div>
               <div className="line3 d-flex  justify-content-between align-items-center pb-3 pt-3">

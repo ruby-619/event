@@ -6,6 +6,7 @@ import EventList from './pages/Event/EventList'
 import EventDetail from './pages/Event/EventDetail'
 import EventIndex2 from './pages/Event/EventIndex2'
 import Home from './pages/Home'
+import EventCategoryCard from './components/EventCategoryCard'
 
 function App() {
   return (
@@ -17,10 +18,18 @@ function App() {
         <Link to="/event-detail">EventDetail</Link> */}
 
         {/* 路由表 */}
+
         <Switch>
+         
           <Route path="/event-list">
             <EventList />
           </Route>
+          <Route path="/event-list/:id?">
+            {/* 這段待會由老師確認 */}
+            <EventCategoryCard />
+            {/* 這段待會由老師確認 */}
+          </Route>
+          
           <Route path="/event-detail/:id?">
             <EventDetail />
           </Route>
