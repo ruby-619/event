@@ -3,8 +3,10 @@ import { BsBookmark } from 'react-icons/bs'
 import { GoLocation } from 'react-icons/go'
 import { IoMdCalendar } from 'react-icons/io'
 import { Route, withRouter, Link, Switch, matchPath } from 'react-router-dom'
+import EventNAV from './EventNAV'
 
-const EventCategoryCard = () => {
+const EventCategoryCard = (props) => {
+  console.log(props)
   const [event, setEvent] = useState([])
   const [dataLoading, setDataLoading] = useState(false)
   var moment = require('moment')
@@ -14,8 +16,8 @@ const EventCategoryCard = () => {
     setDataLoading(true)
 
     // 連接的伺服器資料網址
-    
-    const url = 'http://localhost:3000/event/category/:eCategory'
+    const eCategory = props.match.params.id
+    const url = 'http://localhost:3000/event/category/' + eCategory
 
     // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
@@ -58,6 +60,7 @@ const EventCategoryCard = () => {
       <body className="bg2">
         <div class="container">
           <div class="row">
+            <EventNAV />
             {/* 首張卡 */}
             {/* <div class="ecard2 mt-5 d-flex">
               <div class="photo2">
@@ -89,12 +92,12 @@ const EventCategoryCard = () => {
                 </div>
               </div>
             </div> */}
-            {
-              event?.data?.map((v, i) => {
-                return (
+            {event?.map((v, i) => {
+              return (
+                <div>
                   <div class="ecard2 mt-5 d-flex bg-pink">
                     <div class="photo2">
-                      <img src="https://picsum.photos/392/339/?random=2" />
+                      <img src={v.eventImg} />
                     </div>
                     <div class="text">
                       <h4>{v.eventName}</h4>
@@ -136,8 +139,9 @@ const EventCategoryCard = () => {
                       </div>
                     </div>
                   </div>
-                )
-              })}
+                </div>
+              )
+            })}
           </div>
         </div>
       </body>

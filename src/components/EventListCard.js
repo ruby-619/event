@@ -1,5 +1,5 @@
-
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import DateSearch from '../pages/Event/components/Filter/DateSearch'
 import Location from '../pages/Event/components/Filter/Location'
 import SearchBar from '../pages/Event/components/Filter/SearchBar'
@@ -7,9 +7,11 @@ import Sort from '../pages/Event/components/Filter/Sort'
 import { BsBookmark } from 'react-icons/bs'
 import { GoLocation } from 'react-icons/go'
 import { IoMdCalendar } from 'react-icons/io'
+import { FcBookmark } from 'react-icons/fc'
 import { NetworkAuthenticationRequire } from 'http-errors'
 
 const EventListCard = () => {
+  const [collection, setcollection] = useState([1, 1, 1, 0, 0, 0])
   const [event, setEvent] = useState([]) //初始資料
   const [displayEvent, setdisplayEvent] = useState([]) //篩過之後的資料
 
@@ -54,12 +56,12 @@ const EventListCard = () => {
   // 1.依照關鍵字
 
   const handleSearch = (event, searchWord) => {
-   // console.log(searchWord)
+    // console.log(searchWord)
     let newEvent = [...event]
 
     if (searchWord) {
       newEvent = event.filter((e) => {
-       // console.log(e.eventName.includes(searchWord))
+        // console.log(e.eventName.includes(searchWord))
         return e.eventName.includes(searchWord)
       })
     } else {
@@ -94,12 +96,12 @@ const EventListCard = () => {
     switch (seletedLocation) {
       case '台北市':
         newEvent = [...newEvent].filter((e) => {
-          return (e.eventLocation === '台北市')
+          return e.eventLocation === '台北市'
         })
         break
       case '桃園市':
         newEvent = [...newEvent].filter((e) => {
-          return (e.eventLocation === '桃園市')
+          return e.eventLocation === '桃園市'
         })
         break
       // 指所有的產品都出現
@@ -120,7 +122,7 @@ const EventListCard = () => {
     newEvent = handleSort(newEvent, sortBy)
     console.log(newEvent)
     newEvent = handleLocation(newEvent, seletedLocation)
-console.log(newEvent)
+    console.log(newEvent)
     setdisplayEvent(newEvent)
 
     setTimeout(() => {
@@ -140,18 +142,18 @@ console.log(newEvent)
 
   return (
     <div>
-      <DateSearch dateSearch={dateSearch} setdateSearch={setdateSearch} />
-      <Location
-        seletedLocation={seletedLocation}
-        setseletedLocation={setseletedLocation}
-      />
-      <SearchBar searchWord={searchWord} setSearchWord={setSearchWord} />
-      <Sort sortBy={sortBy} setSortBy={setSortBy} />
       <body className="bg2">
         <div class="container">
           <div class="row">
+            <DateSearch dateSearch={dateSearch} setdateSearch={setdateSearch} />
+            <Location
+              seletedLocation={seletedLocation}
+              setseletedLocation={setseletedLocation}
+            />
+            <SearchBar searchWord={searchWord} setSearchWord={setSearchWord} />
+            <Sort sortBy={sortBy} setSortBy={setSortBy} />
             {/* 首張卡 */}
-            <div class="ecard2 mt-5 d-flex">
+            {/* <div class="ecard2 mt-5 d-flex">
               <div class="photo2">
                 <img src="https://picsum.photos/392/339/?random=1" />
               </div>
@@ -159,15 +161,29 @@ console.log(newEvent)
                 <h4>品調香體驗 淡香水手作</h4>
 
                 <div class="line1 d-flex justify-content-between align-items-center mt-3 border-bottom">
-                  <h3>$ 990</h3>
-                  <div className="d-flex align-items-center">
+                  <h3>$ 990</h3> */}
+            {/* <div className="d-flex align-items-center">
                     <div>
-                      <BsBookmark size="22px" />
+                      {collection ? (
+                        <BsBookmark
+                          size="22px"
+                          onMouseDown={() => {
+                            setcollection(0)
+                          }}
+                        />
+                      ) : (
+                        <FcBookmark
+                          size="22px"
+                          onMouseDown={() => {
+                            setcollection(1)
+                          }}
+                        />
+                      )}
                     </div>
                     <div className="add">加入收藏</div>
                   </div>
-                </div>
-                <div class="line2 d-flex justify-content-between align-items-center border-bottom pb-3 pt-3">
+                </div> */}
+            {/* <div class="line2 d-flex justify-content-between align-items-center border-bottom pb-3 pt-3">
                   <div className="h6-tc">台北市</div>
                   <h6>尚有名額</h6>
                 </div>
@@ -180,53 +196,76 @@ console.log(newEvent)
                   <a href="#">MORE</a>
                 </div>
               </div>
-            </div>
+            </div> */}
             {displayEvent.map((v, i) => {
               return (
-                <div class="ecard2 mt-5 d-flex bg-pink">
-                  <div class="photo2">
-                    <img src={v.eventImg} />
+                <Link to={`/event-detail/${v.id}`}>
+                  {console.log(v.id)}
+                  <div class="ecard2 mt-5 d-flex bg-pink">
+                    <div class="photo2">
+                      <img src={v.eventImg} />
+                    </div>
+                    <div class="text">
+                      <h4>{v.eventName}</h4>
+                      <div class="line2 d-flex justify-content-between align-items-center border-bottom pb-3 pt-3">
+                        <div className="h6-tc d-flex align-items-center">
+                          <div>
+                            <IoMdCalendar size="25px" />
+                          </div>
+                          活動日期：
+                          {moment(v.eventDate).format('YYYY-MM-DD')}
+                          <span>({moment(v.eventDate).format('dddd')})</span>
+                        </div>
+                      </div>
+                      <div class="line1 d-flex justify-content-between align-items-center mt-3 border-bottom">
+                        <h3>$ {v.eventPrice}</h3>
+                        <div className="d-flex align-items-center">
+                          <div>
+                            {collection[i] === 1 ? (
+                              <BsBookmark
+                                size="22px"
+                                onMouseDown={() => {
+                                  const newCollection = [...collection]
+                                  newCollection[i] =
+                                    newCollection[i] === 1 ? 0 : 1
+                                  setcollection(newCollection)
+                                }}
+                              />
+                            ) : (
+                              <FcBookmark
+                                size="22px"
+                                onMouseDown={() => {
+                                  const newCollection = [...collection]
+                                  newCollection[i] =
+                                    newCollection[i] === 1 ? 0 : 1
+                                  setcollection(newCollection)
+                                }}
+                              />
+                            )}
+                          </div>
+                          <div className="add">加入收藏</div>
+                        </div>
+                      </div>
+                      <div class="line2 d-flex justify-content-between align-items-center border-bottom pb-3 pt-3">
+                        <div className="h6-tc d-flex">
+                          <div>
+                            <GoLocation size="25px" />
+                          </div>
+                          {v.eventLocation}
+                        </div>
+                        <h6>尚有名額</h6>
+                      </div>
+                      <div class="line3 d-flex mt-3">
+                        <div className="pr-3">{v.eventCategory} </div>
+                        <div>|</div>
+                        <div className="pl-3">一人成團</div>
+                      </div>
+                      <div className="more">
+                        <a href="#">MORE</a>
+                      </div>
+                    </div>
                   </div>
-                  <div class="text">
-                    <h4>{v.eventName}</h4>
-                    <div class="line2 d-flex justify-content-between align-items-center border-bottom pb-3 pt-3">
-                      <div className="h6-tc d-flex align-items-center">
-                        <div>
-                          <IoMdCalendar size="25px" />
-                        </div>
-                        活動日期：
-                        {moment(v.eventDate).format('YYYY-MM-DD')}
-                        <span>({moment(v.eventDate).format('dddd')})</span>
-                      </div>
-                    </div>
-                    <div class="line1 d-flex justify-content-between align-items-center mt-3 border-bottom">
-                      <h3>$ {v.eventPrice}</h3>
-                      <div className="d-flex align-items-center">
-                        <div>
-                          <BsBookmark size="22px" />
-                        </div>
-                        <div className="add">加入收藏</div>
-                      </div>
-                    </div>
-                    <div class="line2 d-flex justify-content-between align-items-center border-bottom pb-3 pt-3">
-                      <div className="h6-tc d-flex">
-                        <div>
-                          <GoLocation size="25px" />
-                        </div>
-                        {v.eventLocation}
-                      </div>
-                      <h6>尚有名額</h6>
-                    </div>
-                    <div class="line3 d-flex mt-3">
-                      <div className="pr-3">{v.eventCategory} </div>
-                      <div>|</div>
-                      <div className="pl-3">一人成團</div>
-                    </div>
-                    <div className="more">
-                      <a href="#">MORE</a>
-                    </div>
-                  </div>
-                </div>
+                </Link>
               )
             })}
           </div>

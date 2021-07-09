@@ -5,7 +5,7 @@ function Sort(props) {
   return (
     <>
       <select
-        className="eSELECT toRight"
+        className="eSELECT "
         value={sortBy}
         onChange={(e) => {
           setSortBy(e.target.value)

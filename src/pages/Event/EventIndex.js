@@ -15,20 +15,23 @@ class EventIndex extends Component {
   render() {
     return (
       <>
-        <LunarPhaseHeader />
+        {/* <LunarPhaseHeader /> */}
         <body className="bg1">
-          <Carousel1 />
+          {/* <Carousel1 /> */}
           <Carousel>
+          
             <div className="eventCarousal">
-              <img src="../images/Event/chang.jpg" />
-              {/* <p className="legend">Legend 1</p> */}
+              <img src="https://fakeimg.pl/300" />
             </div>
+            {/* <p className="legend">Legend 1</p> */}
             <div className="eventCarousal">
-              <img src="../images/Event/670.jpeg" />
+              <img src="https://fakeimg.pl/300" />
+
               {/* <p className="legend">Legend 2</p> */}
             </div>
             <div className="eventCarousal">
-              <img src="../images/Event/210.jpeg" />
+              <img src="https://fakeimg.pl/300" />
+
               {/* <p className="legend">Legend 3</p> */}
             </div>
           </Carousel>

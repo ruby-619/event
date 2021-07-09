@@ -1,13 +1,7 @@
 import React, { useState } from 'react'
 import { Route, withRouter, Link, Switch, matchPath } from 'react-router-dom'
-import OneOfCategory from '../pages/Event/components/OneOfCategory'
-import EventCategoryCard from './EventCategoryCard'
-
-
 
 const EventNAV = (props) => {
-  console.log(props.match.pathname)
-
   const url = props.match.url
   const path = props.match.path
   return (
@@ -16,19 +10,20 @@ const EventNAV = (props) => {
         <div class="Enav">
           <ul class="d-flex justify-content-center">
             <li>
-              <Link to={`${url}/1`}>戶外</Link>
+              {/* <Link to={`${url}/1`}>戶外</Link> */}
+              <Link to="/category/1">戶外</Link>
             </li>
             <li>
-              <Link to={`${url}/2`}>藝文</Link>
+              <Link to="/category/2">藝文</Link>
             </li>
             <li>
-              <Link to={`${url}/3`}>講座</Link>
+              <Link to="/category/3">講座</Link>
             </li>
             <li>
-              <Link to={`${url}/4`}>手作</Link>
+              <Link to="/category/4">手作</Link>
             </li>
             <li>
-              <Link to={`${url}/5`}>品味</Link>
+              <Link to="/category/5">品味</Link>
             </li>
           </ul>
         </div>

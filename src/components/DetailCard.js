@@ -2,12 +2,22 @@ import { json } from 'body-parser'
 import React, { useState, useEffect } from 'react'
 
 import { BsBookmark } from 'react-icons/bs'
+import { FcBookmark } from 'react-icons/fc'
 import { withRouter } from 'react-router-dom'
 
 const DetailCard = (props) => {
   console.log(props)
   const [total, setTotal] = useState(0)
-  const [addToCollection, setaddToCollection] = useState('')
+  const [collection, setcollection] = useState(1)
+  const [imageChangeOne, setimageChangeOne] = useState(
+    'https://picsum.photos/392/339/?random=1'
+  )
+  const [imageChangeTwo, setimageChangeTwo] = useState(
+    'https://picsum.photos/392/339/?random=2'
+  )
+  const [imageChangeThree, setimageChangeThree] = useState(
+    'https://picsum.photos/392/339/?random=3'
+  )
 
   const [event, setEvent] = useState([
     {
@@ -88,18 +98,23 @@ const DetailCard = (props) => {
           <div class="ecard3  d-flex">
             <div class="smallPhoto d-flex flex-column-reverse align-items-start">
               <div className="sm">
-                <img src="https://picsum.photos/392/339/?random=1" />
+                <img
+                  src={imageChangeOne}
+                  onClick={() => {
+                    setimageChangeOne()
+                  }}
+                />
               </div>
               <div className="sm">
-                <img src="https://picsum.photos/392/339/?random=2" />
+                <img src={imageChangeTwo} />
               </div>
               <div className="sm">
-                <img src="https://picsum.photos/392/339/?random=3" />
+                <img src={imageChangeThree} />
               </div>
             </div>
             <div class="photo3">
               <img src={event.eventImg} />
-              {console.log(event.eventImg)}
+              {/* <img src={event.eventImg} /> */}
             </div>
             <div class="text3">
               <h4>{event.eventName}</h4>
@@ -107,13 +122,21 @@ const DetailCard = (props) => {
                 <h3>$ {event.eventPrice}</h3>
                 <div className="d-flex align-items-center">
                   <div>
-                    <BsBookmark
-                      size="22px"
-                      color="addToCollection"
-                      onMouseDown={() => {
-                        setaddToCollection('#afa')
-                      }}
-                    />
+                    {collection ? (
+                      <BsBookmark
+                        size="22px"
+                        onMouseDown={() => {
+                          setcollection(0)
+                        }}
+                      />
+                    ) : (
+                      <FcBookmark
+                        size="22px"
+                        onMouseDown={() => {
+                          setcollection(1)
+                        }}
+                      />
+                    )}
                   </div>
                   <div className="add">加入收藏</div>
                 </div>

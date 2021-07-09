@@ -32,7 +32,7 @@ const Location = (props) => {
         })}
       </select> */}
       <select
-        className="eSELECT bd-highlight"
+        className="eSELECT p-2 bd-highlight"
         value={seletedLocation}
         onChange={(e) => {
           setseletedLocation(e.target.value)

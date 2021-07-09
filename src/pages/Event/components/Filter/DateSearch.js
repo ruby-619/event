@@ -4,10 +4,10 @@ function DateSearch(props) {
   const { dateSearch, setdateSearch } = props
   return (
     <>
-      <div className="input-group">
+      <div>
         <input
           type="date"
-          className="form-control"
+          className="eINPUT"
           placeholder="以日期搜尋"
           value={dateSearch}
           onChange={(e) => setdateSearch(e.target.value)}
