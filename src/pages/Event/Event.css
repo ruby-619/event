@@ -9,11 +9,16 @@
 
 .eventCarousal {
   width: 100%;
-  height: 60vh;
+  height: 55vh;
 }
 
-.carousel-root {
-  width: 50%;
+.eventCarousal img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+div.carousel-root {
+  width: 600px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -27,7 +32,16 @@
   display: none;
 }
 
+.control-arrow {
+  display: none;
+}
+
+.carousel-status {
+  display: none;
+}
+
 .thumbs.animated {
+  width: 100px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -37,12 +51,14 @@
           flex-direction: column-reverse;
 }
 
-.animated {
-  display: none;
+.thumbs-wrapper {
+  width: 150px;
 }
 
+.carousel .thumbs-wrapper
 .thumb {
   border-radius: 50%;
+  margin: 10px;
 }
 
 .thumb img {
@@ -57,10 +73,10 @@
 }
 
 .HomePageCard {
-  width: 300px;
+  width: 250px;
   text-align: center;
   color: #383844;
-  margin: 0px auto 85px auto;
+  margin: 0px 5px 85px 5px;
 }
 
 .HomePageCardDate {
@@ -78,7 +94,7 @@
 }
 
 .HomePageCardPhoto {
-  width: 300px;
+  width: 250px;
   height: 380px;
 }
 
@@ -135,7 +151,7 @@ svg {
 
 .ecard2 {
   background-color: #fff;
-  width: 100%;
+  width: 70%;
   height: 50vh;
   border-radius: 20px;
   position: relative;

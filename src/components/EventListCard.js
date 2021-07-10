@@ -201,6 +201,7 @@ const EventListCard = () => {
               return (
                 <Link to={`/event-detail/${v.id}`}>
                   {console.log(v.id)}
+
                   <div class="ecard2 mt-5 d-flex bg-pink">
                     <div class="photo2">
                       <img src={v.eventImg} />
@@ -235,10 +236,7 @@ const EventListCard = () => {
                               <FcBookmark
                                 size="22px"
                                 onMouseDown={() => {
-                                  const newCollection = [...collection]
-                                  newCollection[i] =
-                                    newCollection[i] === 1 ? 0 : 1
-                                  setcollection(newCollection)
+                                  setcollection(1)
                                 }}
                               />
                             )}

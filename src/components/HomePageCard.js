@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 const HomePageCard = () => {
   const [event, setEvent] = useState([])
@@ -56,19 +57,23 @@ const HomePageCard = () => {
         {event?.data?.map((v, i) => {
           return (
             <>
-              <div class="HomePageCard">
-                <div class="top">
-                  <div class="HomePageCardDate">
-                    {moment(v.eventDate).format('YYYY-MM-DD')}
+              <Link to={`/event-detail/${v.id}`}>
+                <div class="HomePageCard">
+                  <div class="top">
+                    <div class="HomePageCardDate">
+                      {moment(v.eventDate).format('YYYY-MM-DD')}
+                    </div>
+                    <div class="HomePageCardTitle">{v.eventName}</div>
                   </div>
-                  <div class="HomePageCardTitle">{v.eventName}</div>
+                  <div class="HomePageCardPhoto">
+                    <img src={v.eventImg} />
+                  </div>
+                  <div class="HomePageCardContent TextAlignCenter">
+                    {v.eventSubtitle}
+                  </div>
+                  <div class="HomePageCardRegister">報名中</div>
                 </div>
-                <div class="HomePageCardPhoto">
-                  <img src={v.eventImg} />
-                </div>
-                <div class="HomePageCardContent TextAlignCenter">{v.eventSubtitle}</div>
-                <div class="HomePageCardRegister">報名中</div>
-              </div>
+              </Link>
             </>
           )
         })}

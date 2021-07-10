@@ -4,6 +4,8 @@ import { GoLocation } from 'react-icons/go'
 import { IoMdCalendar } from 'react-icons/io'
 import { Route, withRouter, Link, Switch, matchPath } from 'react-router-dom'
 import EventNAV from './EventNAV'
+import LunarPhaseFooter from './LunarPhaseFooter'
+import LunarPhaseHeader from './LunarPhaseHeader'
 
 const EventCategoryCard = (props) => {
   console.log(props)
@@ -57,10 +59,11 @@ const EventCategoryCard = (props) => {
   )
   return (
     <div>
+      <LunarPhaseHeader />
       <body className="bg2">
+        <EventNAV />
         <div class="container">
           <div class="row">
-            <EventNAV />
             {/* 首張卡 */}
             {/* <div class="ecard2 mt-5 d-flex">
               <div class="photo2">
@@ -145,6 +148,7 @@ const EventCategoryCard = (props) => {
           </div>
         </div>
       </body>
+      <LunarPhaseFooter />
     </div>
   )
 }

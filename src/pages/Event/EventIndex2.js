@@ -1,4 +1,5 @@
-import React, { Component ,useState} from 'react'
+import React, { Component, useState } from 'react'
+import { Link } from 'react-router-dom'
 import ReactDOM from 'react-dom'
 import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
 // import { Carousel } from 'react-responsive-carousel'
@@ -11,11 +12,11 @@ import { FaPaintBrush, FaHandPaper, FaWineGlass } from 'react-icons/fa'
 import './Event.scss'
 
 const EventIndex2 = () => {
-  const [color, setcolor] = useState("FDD2BB")
-  const [color2, setcolor2] = useState("FDD2BB")
-  const [color3, setcolor3] = useState("FDD2BB")
-  const [color4, setcolor4] = useState("FDD2BB")
-  const [color5, setcolor5] = useState("FDD2BB")
+  const [color, setcolor] = useState('FDD2BB')
+  const [color2, setcolor2] = useState('FDD2BB')
+  const [color3, setcolor3] = useState('FDD2BB')
+  const [color4, setcolor4] = useState('FDD2BB')
+  const [color5, setcolor5] = useState('FDD2BB')
   return (
     <>
       <LunarPhaseHeader />
@@ -29,60 +30,90 @@ const EventIndex2 = () => {
           <h2 className="TextAlignCenter">分類找活動</h2>
           <div className="CategoryIcons">
             <div className="d-flex justify-content-center ">
-              <div className="box box-bottom">
-                <GiCampingTent
-                  color={color}
-                  size="100px"
-                  style={{ transform: `translate(${0}px, ${25}px)` }}
-                  onMouseOver={()=>{setcolor("#E64B4B")}}
-                  onMouseLeave={()=>{setcolor("#FDD2BB")}}
-                />
-              </div>
+              <Link to="category/1">
+                <div className="box box-bottom">
+                  <GiCampingTent
+                    color={color}
+                    size="100px"
+                    style={{ transform: `translate(${0}px, ${25}px)` }}
+                    onMouseOver={() => {
+                      setcolor('#E64B4B')
+                    }}
+                    onMouseLeave={() => {
+                      setcolor('#FDD2BB')
+                    }}
+                  />
+                </div>
+              </Link>
             </div>
-            <div className="d-flex justify-content-center ">
-              <div className="box box-middle-left">
-                <FaPaintBrush
-                  color={color2}
-                  size="70px"
-                  style={{ transform: `translate(${0}px, ${40}px)` }}
-                  onMouseOver={()=>{setcolor2("#E64B4B")}}
-                  onMouseLeave={()=>{setcolor2("#FDD2BB")}}
-                />
+            <Link to="category/2">
+              <div className="d-flex justify-content-center ">
+                <div className="box box-middle-left">
+                  <FaPaintBrush
+                    color={color2}
+                    size="70px"
+                    style={{ transform: `translate(${0}px, ${40}px)` }}
+                    onMouseOver={() => {
+                      setcolor2('#E64B4B')
+                    }}
+                    onMouseLeave={() => {
+                      setcolor2('#FDD2BB')
+                    }}
+                  />
+                </div>
               </div>
-            </div>
-            <div className="d-flex justify-content-center ">
-              <div className="box">
-                <GiBookCover
-                  color={color3}
-                  size="100px"
-                  style={{ transform: `translate(${0}px, ${30}px)` }}
-                  onMouseOver={()=>{setcolor3("#E64B4B")}}
-                  onMouseLeave={()=>{setcolor3("#FDD2BB")}}
-                />
+            </Link>
+            <Link to="category/3">
+              <div className="d-flex justify-content-center ">
+                <div className="box">
+                  <GiBookCover
+                    color={color3}
+                    size="100px"
+                    style={{ transform: `translate(${0}px, ${30}px)` }}
+                    onMouseOver={() => {
+                      setcolor3('#E64B4B')
+                    }}
+                    onMouseLeave={() => {
+                      setcolor3('#FDD2BB')
+                    }}
+                  />
+                </div>
               </div>
-            </div>
-            <div className="d-flex justify-content-center ">
-              <div className="box box-middle-right">
-                <FaHandPaper
-                  color={color4}
-                  size="90px"
-                  style={{ transform: `translate(${-5}px, ${30}px)` }}
-                  onMouseOver={()=>{setcolor4("#E64B4B")}}
-                  onMouseLeave={()=>{setcolor4("#FDD2BB")}}
-                />
+            </Link>
+            <Link to="category/4">
+              <div className="d-flex justify-content-center ">
+                <div className="box box-middle-right">
+                  <FaHandPaper
+                    color={color4}
+                    size="90px"
+                    style={{ transform: `translate(${-5}px, ${30}px)` }}
+                    onMouseOver={() => {
+                      setcolor4('#E64B4B')
+                    }}
+                    onMouseLeave={() => {
+                      setcolor4('#FDD2BB')
+                    }}
+                  />
+                </div>
               </div>
-            </div>
-            <div className="d-flex justify-content-center ">
-              <div className="box box-bottom">
-                <FaWineGlass
-                  color={color5}
-                  size="90px"
-                  style={{ transform: `translate(${0}px, ${30}px)` }}
-                  onMouseOver={()=>{setcolor5("#E64B4B")}}
-                  onMouseLeave={()=>{setcolor5("#FDD2BB")}}
-                />
+            </Link>
+            <Link to="category/5">
+              <div className="d-flex justify-content-center ">
+                <div className="box box-bottom">
+                  <FaWineGlass
+                    color={color5}
+                    size="90px"
+                    style={{ transform: `translate(${0}px, ${30}px)` }}
+                    onMouseOver={() => {
+                      setcolor5('#E64B4B')
+                    }}
+                    onMouseLeave={() => {
+                      setcolor5('#FDD2BB')
+                    }}
+                  />
+                </div>
               </div>
-            </div>
+            </Link>
           </div>
           <div className="WaveBackground">
             <svg

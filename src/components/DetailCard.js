@@ -9,15 +9,7 @@ const DetailCard = (props) => {
   console.log(props)
   const [total, setTotal] = useState(0)
   const [collection, setcollection] = useState(1)
-  const [imageChangeOne, setimageChangeOne] = useState(
-    'https://picsum.photos/392/339/?random=1'
-  )
-  const [imageChangeTwo, setimageChangeTwo] = useState(
-    'https://picsum.photos/392/339/?random=2'
-  )
-  const [imageChangeThree, setimageChangeThree] = useState(
-    'https://picsum.photos/392/339/?random=3'
-  )
+  // const [imageChange, setimageChange] = useState({})// 
 
   const [event, setEvent] = useState([
     {
@@ -98,18 +90,13 @@ const DetailCard = (props) => {
           <div class="ecard3  d-flex">
             <div class="smallPhoto d-flex flex-column-reverse align-items-start">
               <div className="sm">
-                <img
-                  src={imageChangeOne}
-                  onClick={() => {
-                    setimageChangeOne()
-                  }}
-                />
+                <img src={event.eventImg} />
               </div>
               <div className="sm">
-                <img src={imageChangeTwo} />
+                <img src="https://picsum.photos/392/339/?random=2" />
               </div>
               <div className="sm">
-                <img src={imageChangeThree} />
+                <img src="https://picsum.photos/392/339/?random=3" />
               </div>
             </div>
             <div class="photo3">

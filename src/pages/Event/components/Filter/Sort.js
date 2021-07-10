@@ -12,8 +12,8 @@ function Sort(props) {
         }}
       >
         <option value="">依活動價格</option>
-        <option value="1">由高到低</option>
-        <option value="2">由低到高</option>
+        <option value="1">由低到高</option>
+        <option value="2">由高到低</option>
       </select>
     </>
   )

@@ -19,17 +19,16 @@ class EventIndex extends Component {
         <body className="bg1">
           {/* <Carousel1 /> */}
           <Carousel>
-          
-            <div className="eventCarousal">
+            <div>
               <img src="https://fakeimg.pl/300" />
             </div>
             {/* <p className="legend">Legend 1</p> */}
-            <div className="eventCarousal">
+            <div>
               <img src="https://fakeimg.pl/300" />
 
               {/* <p className="legend">Legend 2</p> */}
             </div>
-            <div className="eventCarousal">
+            <div>
               <img src="https://fakeimg.pl/300" />
 
               {/* <p className="legend">Legend 3</p> */}
