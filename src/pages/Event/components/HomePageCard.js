@@ -65,8 +65,24 @@ const HomePageCard = () => {
                     </div>
                     <div class="HomePageCardTitle">{v.eventName}</div>
                   </div>
-                  <div class="HomePageCardPhoto">
-                    <img src={v.eventImg} />
+                  <div className="hcard">
+                    <figure className="hcard__thumb">
+                      <div className="HomePageCardPhoto">
+                        <img src={v.eventImg} className="hcard__image" />
+                      </div>
+                      <figcaption className="hcard__caption">
+                        <h5 className="hcard__snippet"></h5>
+                        <h5
+                          className="hcard__snippet"
+                          dangerouslySetInnerHTML={{
+                            __html: v.eventDescription,
+                          }}
+                        ></h5>
+                        <a href className="hcard__button">
+                          Read more
+                        </a>
+                      </figcaption>
+                    </figure>
                   </div>
                   <div class="HomePageCardContent TextAlignCenter">
                     {v.eventSubtitle}
