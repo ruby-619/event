@@ -1,31 +1,33 @@
 import { json } from 'body-parser'
 import React, { useState, useEffect } from 'react'
+import SmallToLarge from '../SmallToLarge'
 
 import { BsBookmark } from 'react-icons/bs'
 import { FcBookmark } from 'react-icons/fc'
 import { withRouter } from 'react-router-dom'
 
 const DetailCard = (props) => {
+  
   console.log(props)
   const [total, setTotal] = useState(0)
   const [collection, setcollection] = useState(1)
-  // const [imageChange, setimageChange] = useState({})// 
+  // const [imageChange, setimageChange] = useState({})//
 
   const [event, setEvent] = useState([
-    {
-      id: '',
-      eventId: '',
-      eventName: '',
-      eventSubtitle: '',
-      eventDate: '',
-      eventDescription: '',
-      eventLocation: '',
-      eventImg: '',
-      eventPrice: '0',
-      eventCategory: '',
-      created_at: '',
-      updated_at: '',
-    },
+    // {
+    //   id: '',
+    //   eventId: '',
+    //   eventName: '',
+    //   eventSubtitle: '',
+    //   eventDate: '',
+    //   eventDescription: '',
+    //   eventLocation: '',
+    //   eventImg: '',
+    //   eventPrice: '0',
+    //   eventCategory: '',
+    //   created_at: '',
+    //   updated_at: '',
+    // },
   ])
 
   const [dataLoading, setDataLoading] = useState(false)
@@ -89,18 +91,20 @@ const DetailCard = (props) => {
         <div class="row">
           <div class="ecard3  d-flex">
             <div class="smallPhoto d-flex flex-column-reverse align-items-start">
-              <div className="sm">
+              {/* <div className="sm">
                 <img src={event.eventImg} />
-              </div>
-              <div className="sm">
+              </div> */}
+              {/* <div className="sm">
                 <img src="https://picsum.photos/392/339/?random=2" />
-              </div>
-              <div className="sm">
+              </div> */}
+              {/* <div className="sm">
                 <img src="https://picsum.photos/392/339/?random=3" />
-              </div>
+              </div> */}
             </div>
             <div class="photo3">
-              <img src={event.eventImg} />
+              {console.log(event.eventImg)}
+              {/* <img src={event.eventImg} /> */}
+              <SmallToLarge picture={event.eventImg} picture2={event.eventImg} picture3={event.eventImg}/>
               {/* <img src={event.eventImg} /> */}
             </div>
             <div class="text3">

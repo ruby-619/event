@@ -5,7 +5,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loa
 // import { Carousel } from 'react-responsive-carousel'
 import LunarPhaseHeader from '../../components/LunarPhaseHeader'
 import LunarPhaseFooter from '../../components/LunarPhaseFooter'
-import EventCard from '../../components/HomePageCard'
+import EventCard from './components/HomePageCard'
 import Carousel1 from '../../components/Carousel1'
 import { GiCampingTent, GiBookCover } from 'react-icons/gi'
 import { FaPaintBrush, FaHandPaper, FaWineGlass } from 'react-icons/fa'

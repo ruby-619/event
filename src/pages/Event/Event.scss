@@ -19,8 +19,8 @@
 }
 
 div.carousel-root{
-  width: 600px;
-  display: flex;
+  width: 400px;
+  // display: flex;
   flex-direction: row-reverse;
 }
 
@@ -36,25 +36,25 @@ div.carousel-root{
 }
 // 小圖外框
 .thumbs.animated {
-  width: 100px;
+  // width: 100px;
   display: flex;
-  flex-direction: column-reverse;
+  // flex-direction: column-reverse;
 }
 .thumbs-wrapper{
-  width: 150px;
+  // width: 150px;
 }
 
 // .animated{
 //   display: none;
 // }
-.carousel .thumbs-wrapper
+
 // 小圖
 .thumb {
-  border-radius: 50%;
+  // border-radius: 50%;
   margin: 10px;
 }
 .thumb img {
-  border-radius: 50%;
+  // border-radius: 50%;
 }
 // ul.thumbs.animated{
 //   transform: translate3d(0px, 0px, 0px);
@@ -135,11 +135,40 @@ svg {
 // ecard2
 .ecard2 {
   background-color: #fff;
-  width: 70%;
+  width: 100%;
   height: 50vh;
   border-radius: 20px;
   position: relative;
+  
+
+  &:hover {
+    transition: all 0.2s ease-out;
+    box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+    top: -4px;
+    // border: 1px solid #ffffff;
+    background-color:#fdd2bb;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -16px;
+    right: -16px;
+    // background: #00838d;
+    height: 32px;
+    width: 32px;
+    border-radius: 32px;
+    transform: scale(2);
+    transform-origin: 50% 50%;
+    transition: transform 0.15s ease-out;
+  }
+
+  &:hover:before {
+    transform: scale(2.15);
+  }
 }
+
 .bg-pink {
   background-color: #fdd2bb;
 }
@@ -254,10 +283,14 @@ h6 {
   width: 100%;
   position: relative;
 }
-.photo3 {
+.SmallToLarge {
   width: 33vw;
   height: 60vh;
-  margin: 10vh 5vh 15vh 1vh;
+  margin: 10vh 5vh 5vh 1vh;
+}
+.slide{
+  width: 33vw;
+  height: 60vh;
 }
 .photo3 img {
   width: 100%;
@@ -275,7 +308,7 @@ h6 {
   width: 118px;
 }
 .ebtn-border {
-  width: 35vw;
+  width: 25vw;
   height: 42px;
   border-radius: 2rem;
   background-color: #f7f7ee;
@@ -283,7 +316,7 @@ h6 {
   font-family: 'Montserrat', sans-serif;
   font-weight: normal;
   font-size: 18px;
-  text-align: center;
+  // text-align: left;
   position: absolute;
   bottom: 15vh;
 }
@@ -294,7 +327,7 @@ h6 {
 }
 .smallPhoto {
   height: 240px;
-  margin-top: 10vh;
+  // margin-top: 10vh;
 }
 .sm {
   width: 80px;
@@ -352,4 +385,251 @@ h6 {
 .eventDetailContent {
   margin: 10vw;
   line-height: 40px;
+}
+
+
+// // 
+// // 左右大箭頭
+// .image-gallery-svg {
+//   display: none;
+// }
+// // 小圓照片
+// .image-gallery-thumbnail-image {
+//   width: 92px;
+//   height: 92px;
+//   object-fit: cover;
+//   border-radius: 100%;
+// }
+// // 小圓的外框
+// .image-gallery-thumbnail {
+//   width: 94px;
+//   height: 100px;
+//   border-radius: 100%;
+// }
+
+// 小圓群組
+// .image-gallery-thumbnails {
+//   height: 330px;
+//   margin: 0px 5px 50px 0px;
+// }
+// .image-gallery-thumbnails-container {
+//   display: flex;
+//   flex-direction: column;
+// }
+// // 包含大小圖的容器
+// .image-gallery-content {
+//   display: flex;
+//   flex-direction: row-reverse;
+// }
+// .image-gallery {
+//   width: 50vw;
+//   height: 50vh;
+// }
+// .image-gallery-slide-wrapper.bottom {
+//   width: 40vw;
+//   height: 40vh;
+// }
+// .image-gallery-swipe {
+//   width: 100%;
+//   height: 100%;
+//   object-fit: cover;
+// }
+// 大圖外框大小
+// .image-gallery-slides {
+//   width: 100%;
+//   height: 100%;
+//   object-fit: cover;
+// }
+// .image-gallery-slide.center {
+//   width: 100%;
+//   height: 100%;
+//   object-fit: cover;
+// }
+// .image-gallery-slide.right {
+//   width: 100%;
+//   height: 100%;
+//   object-fit: cover;
+// }
+// .image-gallery-slide.left {
+//   width: 100%;
+//   height: 100%;
+//   object-fit: cover;
+// }
+// .center{
+//     width: 40vw;
+//     height:70vh;
+// }
+// 大圖照片尺寸（要吃外層）
+// img.image-gallery-image {
+//   width: 40vw;
+//   height: 100%;
+//   object-fit: cover;
+// }
+// .image-gallery-icon,
+// .image-gallery-play-button {
+//   display: none;
+// }
+// // .image-gallery-slide.right {
+// //   display: none;
+// // }
+// .image-gallery-content.bottom {
+//   width: 50vw;
+//   height: 50vh;
+//   object-fit: cover;
+// }
+// .image-gallery-slide-wrapper.bottom {
+//   width: 100%;
+//   height: 100%;
+//   object-fit: cover;
+// }
+
+li.thumb{
+  width: 80px;
+  height: 80px;
+}
+
+// 分類的圓圈nav
+// @import "compass/css3";
+
+//vars
+$fg:#FDD2BB;
+// $bg:none;
+$pi:3.14;
+
+//config
+$menu-items:4;
+$open-distance:105px;
+$opening-angle:$pi*2;
+
+body{
+  // background:$bg;
+  // color:white;
+  text-align:center;
+}
+a{
+  color:inherit;
+}
+h1, h2, h3, h4{
+  margin:0;
+  margin-bottom:10px;
+  margin-top:10px;
+}
+h1{
+  font-size:3em;
+}
+%goo{
+  filter:url('#shadowed-goo');
+  // debug 
+  //background:rgba(255,0,0,0.2);
+}
+%ball{
+  // background:$fg;
+  border-radius:100%;
+  width:80px;
+  height:80px;
+  margin-left:-600px;
+  position:absolute;
+  top:20px;
+  color:white;
+  text-align:center;
+  line-height:80px;
+  transform:translate3d(0,0,0);
+  transition:transform ease-out 200ms;
+}
+.menu-open{
+  display:none;
+}
+.menu-item{
+  @extend %ball;
+}
+.hamburger{
+  $width:25px;
+  $height:3px;
+  width:$width;
+  height:$height;
+  background:white;
+  display:block;
+  position:absolute;
+  top:50%;
+  left:50%;
+  margin-left:-$width/2;
+  margin-top:-$height/2;
+  transition:transform 200ms;
+}
+$hamburger-spacing:8px;
+.hamburger-1{
+  transform:translate3d(0,-$hamburger-spacing,0);
+}
+.hamburger-2{
+  transform:translate3d(0,0,0);
+}
+.hamburger-3{
+  transform:translate3d(0,$hamburger-spacing,0);
+}
+.menu-open:checked+.menu-open-button{
+  .hamburger-1{
+    transform:translate3d(0,0,0) rotate(45deg); 
+  }
+  .hamburger-2{
+    transform:translate3d(0,0,0) scale(0.1,1);
+  }
+  .hamburger-3{
+    transform:translate3d(0,0,0) rotate(-45deg); 
+  }
+}
+.menu{
+  @extend %goo;
+  $width:600px;
+  $height:150px;
+  position:absolute;
+  left:50%;
+  margin-left:-5px;
+  padding-top:20px;
+  padding-left:80px;
+  width:$width;
+  height:$height;
+  box-sizing:border-box;
+  font-size:20px;
+  text-align:left;
+}
+
+
+.menu-item{
+  &:hover{
+    background:white;
+    color:$fg;
+  }
+  @for $i from 1 through $menu-items{
+    &:nth-child(#{$i+2}){
+      transition-duration:180ms;
+    }
+  }
+}
+
+.menu-open-button{
+  @extend %ball;
+  z-index:2;
+  transition-timing-function:cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  transition-duration:400ms;
+  transform:scale(1.1,1.1) translate3d(0,0,0);
+  cursor:pointer;
+}
+.menu-open-button:hover{
+  transform:scale(1.2,1.2) translate3d(0,0,0);
+}
+.menu-open:checked+.menu-open-button{
+  transition-timing-function:linear;
+  transition-duration:200ms;
+  transform:scale(0.8,0.8) translate3d(0,0,0);
+}
+
+.menu-open:checked~.menu-item{
+  transition-timing-function:cubic-bezier(0.165, 0.840, 0.440, 1.000);
+  @for $i from 1 through $menu-items{
+
+    &:nth-child(#{$i+2}){
+      transition-duration:90ms+(100ms*$i);
+      transform:translate3d(110px*$i,0,0);
+    }
+  }
 }

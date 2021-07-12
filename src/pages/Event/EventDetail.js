@@ -1,5 +1,5 @@
 import React from 'react'
-import DetailCard from '../../components/DetailCard'
+import DetailCard from './components/DetailCard'
 
 import LunarPhaseHeader from '../../components/LunarPhaseHeader'
 import LunarPhaseFooter from '../../components/LunarPhaseFooter'
