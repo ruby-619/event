@@ -61,11 +61,11 @@ const EventCategoryCard = (props) => {
     <div>
       <LunarPhaseHeader />
       <body className="bg2">
-      <CategoryNav/>
+        {/* <CategoryNav/> */}
         <div class="container">
-          <div class="row">
-            {/* 首張卡 */}
-            {/* <div class="ecard2 mt-5 d-flex">
+          {/* <div class="row"> */}
+          {/* 首張卡 */}
+          {/* <div class="ecard2 mt-5 d-flex">
               <div class="photo2">
                 <img src="https://picsum.photos/392/339/?random=1" />
               </div>
@@ -95,57 +95,57 @@ const EventCategoryCard = (props) => {
                 </div>
               </div>
             </div> */}
-            {event?.map((v, i) => {
-              return (
-                <div>
-                  <div class="ecard2 mt-5 d-flex ">
-                    <div class="photo2">
-                      <img src={v.eventImg} />
+          {event?.map((v, i) => {
+            return (
+              <div>
+                <div class="ecard2 mt-5 d-flex ">
+                  <div class="photo2">
+                    <img src={v.eventImg} />
+                  </div>
+                  <div class="text">
+                    <h4>{v.eventName}</h4>
+                    <div class="line2 d-flex justify-content-between align-items-center border-bottom pb-3 pt-3">
+                      <div className="h6-tc d-flex align-items-center">
+                        <div>
+                          <IoMdCalendar size="25px" />
+                        </div>
+                        活動日期：
+                        {moment(v.eventDate).format('YYYY-MM-DD')}
+                        <span>({moment(v.eventDate).format('dddd')})</span>
+                      </div>
                     </div>
-                    <div class="text">
-                      <h4>{v.eventName}</h4>
-                      <div class="line2 d-flex justify-content-between align-items-center border-bottom pb-3 pt-3">
-                        <div className="h6-tc d-flex align-items-center">
-                          <div>
-                            <IoMdCalendar size="25px" />
-                          </div>
-                          活動日期：
-                          {moment(v.eventDate).format('YYYY-MM-DD')}
-                          <span>({moment(v.eventDate).format('dddd')})</span>
+                    <div class="line1 d-flex justify-content-between align-items-center mt-3 border-bottom">
+                      <h3>$ {v.eventPrice}</h3>
+                      <div className="d-flex align-items-center">
+                        <div>
+                          <BsBookmark size="22px" />
                         </div>
+                        <div className="add">加入收藏</div>
                       </div>
-                      <div class="line1 d-flex justify-content-between align-items-center mt-3 border-bottom">
-                        <h3>$ {v.eventPrice}</h3>
-                        <div className="d-flex align-items-center">
-                          <div>
-                            <BsBookmark size="22px" />
-                          </div>
-                          <div className="add">加入收藏</div>
+                    </div>
+                    <div class="line2 d-flex justify-content-between align-items-center border-bottom pb-3 pt-3">
+                      <div className="h6-tc d-flex">
+                        <div>
+                          <GoLocation size="25px" />
                         </div>
+                        {v.eventLocation}
                       </div>
-                      <div class="line2 d-flex justify-content-between align-items-center border-bottom pb-3 pt-3">
-                        <div className="h6-tc d-flex">
-                          <div>
-                            <GoLocation size="25px" />
-                          </div>
-                          {v.eventLocation}
-                        </div>
-                        <h6>尚有名額</h6>
-                      </div>
-                      <div class="line3 d-flex mt-3">
-                        <div className="pr-3">{v.eventCategory} </div>
-                        <div>|</div>
-                        <div className="pl-3">一人成團</div>
-                      </div>
-                      <div className="more">
-                        <a href="#">MORE</a>
-                      </div>
+                      <h6>尚有名額</h6>
+                    </div>
+                    <div class="line3 d-flex mt-3">
+                      <div className="pr-3">{v.eventCategory} </div>
+                      <div>|</div>
+                      <div className="pl-3">一人成團</div>
+                    </div>
+                    <div className="more">
+                      <a href="#">MORE</a>
                     </div>
                   </div>
                 </div>
-              )
-            })}
-          </div>
+              </div>
+            )
+          })}
+          {/* </div> */}
         </div>
       </body>
       <LunarPhaseFooter />

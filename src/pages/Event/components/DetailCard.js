@@ -1,4 +1,4 @@
-import { json } from 'body-parser'
+// import { json } from 'body-parser'
 import React, { useState, useEffect } from 'react'
 import SmallToLarge from '../SmallToLarge'
 
@@ -7,30 +7,33 @@ import { FcBookmark } from 'react-icons/fc'
 import { withRouter } from 'react-router-dom'
 
 const DetailCard = (props) => {
-  
   console.log(props)
   const [total, setTotal] = useState(0)
   const [collection, setcollection] = useState(1)
-  // const [imageChange, setimageChange] = useState({})//
-
-  const [event, setEvent] = useState([
-    // {
-    //   id: '',
-    //   eventId: '',
-    //   eventName: '',
-    //   eventSubtitle: '',
-    //   eventDate: '',
-    //   eventDescription: '',
-    //   eventLocation: '',
-    //   eventImg: '',
-    //   eventPrice: '0',
-    //   eventCategory: '',
-    //   created_at: '',
-    //   updated_at: '',
-    // },
-  ])
-
+  // const [imageChange, setimageChange] = useState({})//小圖換大圖
+  const [event, setEvent] = useState([])
+  const [mycart, setMycart] = useState([])
   const [dataLoading, setDataLoading] = useState(false)
+
+  const updateCartToLocalStorage = (item) => {
+    const currentCart = JSON.parse(localStorage.getItem('cart')) || []
+    const index = currentCart.findIndex((v) => v.id === item.id)
+
+    if (index > -1) {
+      //currentCart[index].amount++
+      setEvent('這個商品已經加過了')
+
+      return
+    } else {
+      currentCart.push(item)
+    }
+
+    localStorage.setItem('cart', JSON.stringify(currentCart))
+
+    // 設定資料
+    setMycart(currentCart)
+    setEvent('活動：' + item.name + '已成功加入購物車')
+  }
 
   async function getEventFromServer() {
     // 開啟載入指示
@@ -75,7 +78,7 @@ const DetailCard = (props) => {
   //   return p
   // })
   // console.log(newPhoto)
-
+  const [qty, setQty] = useState(1)
   const loading = (
     <>
       <div className="d-flex justify-content-center">
@@ -104,7 +107,11 @@ const DetailCard = (props) => {
             <div class="photo3">
               {console.log(event.eventImg)}
               {/* <img src={event.eventImg} /> */}
-              <SmallToLarge picture={event.eventImg} picture2={event.eventImg} picture3={event.eventImg}/>
+              <SmallToLarge
+                picture={event.eventImg}
+                picture2={event.eventImg}
+                picture3={event.eventImg}
+              />
               {/* <img src={event.eventImg} /> */}
             </div>
             <div class="text3">
@@ -143,19 +150,23 @@ const DetailCard = (props) => {
                 <div className="h6-tc pr-3">數量 </div>
                 <div className="pl-3 Ebtn-group d-flex justify-content-between">
                   <button
-                    className="Ebtn"
-                    onClick={() => {
-                      setTotal(total - 1)
-                    }}
+                    onClick={() => setQty(qty - 1)}
+                    className="btn "
+                    type="button"
+                    id="qty-sub"
                   >
                     -
                   </button>
-                  <span>{total}</span>
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder={qty}
+                  />
                   <button
-                    className="Ebtn"
-                    onClick={() => {
-                      setTotal(total + 1)
-                    }}
+                    onClick={() => setQty(qty + 1)}
+                    className="btn"
+                    type="button"
+                    id="qty-add"
                   >
                     +
                   </button>
@@ -163,7 +174,19 @@ const DetailCard = (props) => {
               </div>
               <div className="line3 d-flex  justify-content-between align-items-center pb-3 pt-3">
                 <div className="mt-5">
-                  <button class="ebtn-border">我要報名</button>
+                  <button
+                    onClick={() => {
+                      updateCartToLocalStorage({
+                        id: event.id, //傳itemId
+                        name: event.eventName,
+                        amount: qty, //傳Qty
+                        price: event.eventPrice,
+                      })
+                    }}
+                    className="btn-border-l"
+                  >
+                    我要報名
+                  </button>
                 </div>
               </div>
             </div>

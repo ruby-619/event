@@ -500,6 +500,7 @@ li.thumb{
 
 //vars
 $fg:#FDD2BB;
+// $fg:#FDD2BB;
 // $bg:none;
 $pi:3.14;
 
@@ -516,14 +517,14 @@ body{
 a{
   color:inherit;
 }
-h1, h2, h3, h4{
-  margin:0;
-  margin-bottom:10px;
-  margin-top:10px;
-}
-h1{
-  font-size:3em;
-}
+// h1, h2, h3, h4{
+//   margin:0;
+//   margin-bottom:10px;
+//   margin-top:10px;
+// }
+// h1{
+//   font-size:3em;
+// }
 %goo{
   filter:url('#shadowed-goo');
   // debug 
@@ -554,7 +555,7 @@ h1{
   $height:3px;
   width:$width;
   height:$height;
-  background:white;
+  background:rgb(5, 5, 5);
   display:block;
   position:absolute;
   top:50%;
@@ -823,4 +824,10 @@ html {
 		color: #755D87;
 		text-decoration: none;
 	}
+}
+
+// bs分頁樣式修改
+.page-link{
+  height: 30px;
+  font-size: 15px;
 }

@@ -451,16 +451,6 @@ a {
   color: inherit;
 }
 
-h1, h2, h3, h4 {
-  margin: 0;
-  margin-bottom: 10px;
-  margin-top: 10px;
-}
-
-h1 {
-  font-size: 3em;
-}
-
 .menu {
   -webkit-filter: url("#shadowed-goo");
           filter: url("#shadowed-goo");
@@ -491,7 +481,7 @@ h1 {
 .hamburger {
   width: 25px;
   height: 3px;
-  background: white;
+  background: #050505;
   display: block;
   position: absolute;
   top: 50%;
@@ -814,5 +804,10 @@ html *:after {
 .disclaimer__link {
   color: #755D87;
   text-decoration: none;
+}
+
+.page-link {
+  height: 30px;
+  font-size: 15px;
 }
 /*# sourceMappingURL=Event.css.map */
