@@ -55,7 +55,8 @@ const EventListCard = () => {
     setDataLoading(true)
 
     // 連接的伺服器資料網址
-    const url = `http://localhost:3000/event?page=${page}`
+    
+    const url = `http://localhost:4567/event?page=${page}`
 
     // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
@@ -126,21 +127,22 @@ const EventListCard = () => {
   // 3.地區間選項
   const handleLocation = (event, seletedLocation) => {
     let newEvent = [...event]
-    switch (seletedLocation) {
-      case '台北市':
-        newEvent = [...newEvent].filter((e) => {
-          return e.eventLocation === '台北市'
-        })
-        break
-      case '桃園市':
-        newEvent = [...newEvent].filter((e) => {
-          return e.eventLocation === '桃園市'
-        })
-        break
-      // 指所有的產品都出現
-      default:
-        break
+    if (seletedLocation === '1') {
+      newEvent = [...newEvent].filter((e) => e.eventLocation === '台北市')
     }
+    if (seletedLocation === '7') {
+      newEvent = [...newEvent].filter((e) => e.eventLocation === '宜蘭縣')
+    }
+
+    //   case '桃園市':
+    //     newEvent = [...newEvent].filter((e) => {
+    //       return e.eventLocation === '桃園市'
+    //     })
+    //     break
+    //   // 指所有的產品都出現
+    //   default:
+    //     break
+    // }
 
     return newEvent
   }
@@ -161,7 +163,7 @@ const EventListCard = () => {
     setTimeout(() => {
       setDataLoading(false)
     }, 1000)
-  }, [event, searchWord, sortBy])
+  }, [event, searchWord, sortBy, seletedLocation])
 
   const loading = (
     <>

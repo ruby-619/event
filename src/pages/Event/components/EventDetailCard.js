@@ -5,7 +5,7 @@ import { BsBookmark } from 'react-icons/bs'
 import { FcBookmark } from 'react-icons/fc'
 import { withRouter } from 'react-router-dom'
 
-const DetailCard = (props) => {
+const EventDetailCard = (props) => {
   // const [total, setTotal] = useState(0)
   const [collection, setcollection] = useState(1)
   // const [imageChange, setimageChange] = useState({})//小圖換大圖
@@ -39,7 +39,7 @@ const DetailCard = (props) => {
 
     // 連接的伺服器資料網址
     const id = props.match.params.id
-    const url = 'http://localhost:3000/event/' + id
+    const url = 'http://localhost:4567/event/' + id
     // const url = 'http://localhost:6005/event/:id?'
 
     // 注意header資料格式要設定，伺服器才知道是json格式
@@ -71,17 +71,14 @@ const DetailCard = (props) => {
       setDataLoading(false)
     }, 1000)
   }, [event])
-  // let photo = event.eventImg
-  // let newPhoto = photo?.data?.map((p) => {
-  //   return p
-  // })
-  // console.log(newPhoto)
+
   const [qty, setQty] = useState(1)
-  // const [changeImg, setChangImg] = useState(itemCoverImg)
-  
-  // console.log(itemImg)
-  // const mutiImgArray = itemImg.split(',')
-  // console.log(mutiImgArray)
+  const [changeImg, setChangeImg] = useState(event.eventImg)
+  console.log(event.eventImg)
+
+  console.log(event.eventImgGroup)
+  const eventImgGroupArray = event.eventImgGroup?.split(',')
+  console.log(eventImgGroupArray)
 
   const loading = (
     <>
@@ -94,33 +91,32 @@ const DetailCard = (props) => {
   )
   return (
     <>
-           <div className="container-fluid">
+      <div className="container-fluid">
         <div className="item row justify-content-between">
           <div className="item-pic-wrap d-flex col-12 col-md-6">
             <div className="item-pic-select col-2 mx-2 p-0 ">
-              {/* <button
-                onClick={() => setChangImg(itemCoverImg)}
+              <button
+                onClick={() => setChangeImg(event.eventImg)}
                 className="item-pic-select-dot mb-3 p-0"
               >
-                <img src={`/img/Product/${itemCoverImg}`} alt="" />
-              </button> */}
-              {/* {mutiImgArray.length &&
-                mutiImgArray.map((value, index) => {
+                <img src={`/img/Event/${event.eventImg}`} alt="" />
+              </button>
+              {eventImgGroupArray?.length &&
+                eventImgGroupArray.map((v, index) => {
                   return (
                     <>
                       <button
-                        onClick={() => setChangImg(value)}
+                        onClick={() => setChangeImg(v)}
                         className="item-pic-select-dot mb-3 p-0"
                       >
-                        <img src={`/img/Product/${value}`} alt="" />
+                        <img src={`/img/Event/${v}`} alt="" />
                       </button>
                     </>
                   )
-                })} */}
+                })}
             </div>
             <div className="item-pic">
-              {/* <img src={`/img/Product/${changeImg}`} alt="" /> */}
-              <img src={event.eventImg} alt="" />
+              <img src={`/img/Event/${changeImg}`} alt="" />
             </div>
           </div>
           <div className="item-info-wrap text-left col-12 col-md-6 mt-5 mt-md-0 pl-5">
@@ -208,19 +204,21 @@ const DetailCard = (props) => {
                 }}
                 className="btn-border-l"
               >
-                加入購物車
+                我要報名
               </button>
             </div>
           </div>
         </div>
       </div>
-       
+
       <div className="container">
         <div className="row">
-          <h2 className="border-bottom mt17vh">{event.eventName}</h2>
-          <div className="photo474">
-            <img src="https://picsum.photos/474/339/?random=1" />
+          <div className="eventNameSetting">
+            <div className="h4-tc mt-5 mb-5">{event.eventName}</div>
           </div>
+          {/* <div className="photo474">
+            <img src="https://picsum.photos/474/339/?random=1" />
+          </div> */}
           <div className="col-9 m-auto p-tc EventDescriptionLineHeight">
             {/* {event.eventDescription}
             猶如在花園中嬉戲，
@@ -229,7 +227,7 @@ const DetailCard = (props) => {
             <br />
             擺放於家中展現溫柔與生氣。 */}
             <div
-              className="col-9 m-auto p-tc EventDescriptionLineHeight TextAlignCenter"
+              className="col-9 m-auto p-tc  EventDescriptionLineHeight TextAlignCenter"
               dangerouslySetInnerHTML={{ __html: event.eventDescription }}
             ></div>
           </div>
@@ -280,4 +278,4 @@ const DetailCard = (props) => {
   )
 }
 
-export default withRouter(DetailCard)
+export default withRouter(EventDetailCard)

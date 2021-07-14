@@ -19,7 +19,7 @@ const EventCategoryCard = (props) => {
 
     // 連接的伺服器資料網址
     const eCategory = props.match.params.id
-    const url = 'http://localhost:3000/event/category/' + eCategory
+    const url = 'http://localhost:4567/event/category/' + eCategory
 
     // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {

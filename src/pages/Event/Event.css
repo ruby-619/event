@@ -383,8 +383,9 @@ h6 {
 }
 
 .mt17vh {
-  margin-top: 17vh;
+  margin: 17vh;
   width: 100%;
+  text-align: start;
 }
 
 .fluidPhoto {
@@ -434,6 +435,7 @@ h6 {
 }
 
 .eventDetailContent {
+  text-align: left;
   margin: 10vw;
   line-height: 40px;
 }

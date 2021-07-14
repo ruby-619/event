@@ -7,7 +7,7 @@ import LunarPhaseHeader from '../../components/LunarPhaseHeader'
 import LunarPhaseFooter from '../../components/LunarPhaseFooter'
 import EventCard from './components/HomePageCard'
 import Carousel1 from './components/Carousel1'
-import { GiCampingTent, GiBookCover } from 'react-icons/gi'
+import { GiCampingTent, GiBookCover, GiHamburgerMenu } from 'react-icons/gi'
 
 import { FaPaintBrush, FaHandPaper, FaWineGlass } from 'react-icons/fa'
 import './Event.scss'
@@ -64,12 +64,12 @@ const EventIndex2 = () => {
                 </div>
               </div>
             </Link>
-            <Link to="category/3">
+            <Link to="/event-list">
               <div className="d-flex justify-content-center ">
                 <div className="box">
-                  <GiBookCover
+                  <GiHamburgerMenu
                     color={color3}
-                    size="100px"
+                    size="90px"
                     style={{ transform: `translate(${0}px, ${30}px)` }}
                     onMouseOver={() => {
                       setcolor3('#E64B4B')
@@ -101,7 +101,7 @@ const EventIndex2 = () => {
             <Link to="category/5">
               <div className="d-flex justify-content-center ">
                 <div className="box box-bottom">
-                  <FaWineGlass
+                  <GiBookCover
                     color={color5}
                     size="90px"
                     style={{ transform: `translate(${0}px, ${30}px)` }}

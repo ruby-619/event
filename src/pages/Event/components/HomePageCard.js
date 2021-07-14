@@ -11,7 +11,7 @@ const HomePageCard = () => {
     setDataLoading(true)
 
     // 連接的伺服器資料網址
-    const url = 'http://localhost:3000/event'
+    const url = 'http://localhost:4567/event'
     // const url = 'http://localhost:6005/event/?page=1'
 
     // 注意header資料格式要設定，伺服器才知道是json格式
@@ -68,6 +68,7 @@ const HomePageCard = () => {
                   <div className="hcard">
                     <figure className="hcard__thumb">
                       <div className="HomePageCardPhoto">
+                      {/* <img src={`/img/Event/${event.eventImg}`} alt="" className="hcard__image" /> */}
                         <img src={v.eventImg} className="hcard__image" />
                       </div>
                       <figcaption className="hcard__caption">
