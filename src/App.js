@@ -3,9 +3,11 @@ import React from 'react'
 
 import EventList from './pages/Event/EventList'
 import EventDetail from './pages/Event/EventDetail'
+
 import EventIndex2 from './pages/Event/EventIndex2'
 import Home from './pages/Home'
 import EventCategoryCard from './pages/Event/components/EventCategoryCard'
+
 // import EventIndex from './pages/Event/SmallToLarge'
 
 function App() {
@@ -20,7 +22,6 @@ function App() {
         {/* 路由表 */}
 
         <Switch>
-         
           {/* 分類路由 */}
           <Route path="/category/:id?">
             <EventCategoryCard />
@@ -37,6 +38,8 @@ function App() {
           <Route path="/event-detail/:id?">
             <EventDetail />
           </Route>
+         
+
           <Route path="/event">
             <EventIndex2 renderItem />
           </Route>

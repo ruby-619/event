@@ -1,4 +1,3 @@
-// import { json } from 'body-parser'
 import React, { useState, useEffect } from 'react'
 import SmallToLarge from '../SmallToLarge'
 import { BsBookmark } from 'react-icons/bs'
@@ -55,7 +54,8 @@ const EventDetailCard = (props) => {
     console.log(data)
     // 設定資料
     setEvent(data)
-    console.log()
+    console.log(data.eventImg)
+    setChangeImg(data.eventImg)
   }
   useEffect(() => {
     getEventFromServer()
@@ -124,13 +124,6 @@ const EventDetailCard = (props) => {
               <h5 className="h5-item-l">{event.eventName}</h5>
             </div>
             <div className="item-tag d-flex">
-              {/* <img
-                className="item-drop mr-2"
-                src={`/../img/svg/${flowImg}`}
-                alt=""
-              /> */}
-              {/* <p className="item-tags my-auto mx-0"> {itemSize}</p>
-              <p className="item-tags my-auto mx-0"> {flowName}</p> */}
             </div>
             <div className="item-price-line d-flex justify-content-between align-items-center ">
               <div className="item-price">
