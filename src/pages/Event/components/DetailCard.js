@@ -1,14 +1,12 @@
 // import { json } from 'body-parser'
 import React, { useState, useEffect } from 'react'
 import SmallToLarge from '../SmallToLarge'
-
 import { BsBookmark } from 'react-icons/bs'
 import { FcBookmark } from 'react-icons/fc'
 import { withRouter } from 'react-router-dom'
 
 const DetailCard = (props) => {
-  console.log(props)
-  const [total, setTotal] = useState(0)
+  // const [total, setTotal] = useState(0)
   const [collection, setcollection] = useState(1)
   // const [imageChange, setimageChange] = useState({})//小圖換大圖
   const [event, setEvent] = useState([])
@@ -79,6 +77,12 @@ const DetailCard = (props) => {
   // })
   // console.log(newPhoto)
   const [qty, setQty] = useState(1)
+  // const [changeImg, setChangImg] = useState(itemCoverImg)
+  
+  // console.log(itemImg)
+  // const mutiImgArray = itemImg.split(',')
+  // console.log(mutiImgArray)
+
   const loading = (
     <>
       <div className="d-flex justify-content-center">
@@ -90,65 +94,86 @@ const DetailCard = (props) => {
   )
   return (
     <>
-      <div class="container">
-        <div class="row">
-          <div class="ecard3  d-flex">
-            <div class="smallPhoto d-flex flex-column-reverse align-items-start">
-              {/* <div className="sm">
-                <img src={event.eventImg} />
-              </div> */}
-              {/* <div className="sm">
-                <img src="https://picsum.photos/392/339/?random=2" />
-              </div> */}
-              {/* <div className="sm">
-                <img src="https://picsum.photos/392/339/?random=3" />
+           <div className="container-fluid">
+        <div className="item row justify-content-between">
+          <div className="item-pic-wrap d-flex col-12 col-md-6">
+            <div className="item-pic-select col-2 mx-2 p-0 ">
+              {/* <button
+                onClick={() => setChangImg(itemCoverImg)}
+                className="item-pic-select-dot mb-3 p-0"
+              >
+                <img src={`/img/Product/${itemCoverImg}`} alt="" />
+              </button> */}
+              {/* {mutiImgArray.length &&
+                mutiImgArray.map((value, index) => {
+                  return (
+                    <>
+                      <button
+                        onClick={() => setChangImg(value)}
+                        className="item-pic-select-dot mb-3 p-0"
+                      >
+                        <img src={`/img/Product/${value}`} alt="" />
+                      </button>
+                    </>
+                  )
+                })} */}
+            </div>
+            <div className="item-pic">
+              {/* <img src={`/img/Product/${changeImg}`} alt="" /> */}
+              <img src={event.eventImg} alt="" />
+            </div>
+          </div>
+          <div className="item-info-wrap text-left col-12 col-md-6 mt-5 mt-md-0 pl-5">
+            <div className="item-name mb-3">
+              <h5 className="h5-item-l">{event.eventName}</h5>
+            </div>
+            <div className="item-tag d-flex">
+              {/* <img
+                className="item-drop mr-2"
+                src={`/../img/svg/${flowImg}`}
+                alt=""
+              /> */}
+              {/* <p className="item-tags my-auto mx-0"> {itemSize}</p>
+              <p className="item-tags my-auto mx-0"> {flowName}</p> */}
+            </div>
+            <div className="item-price-line d-flex justify-content-between align-items-center ">
+              <div className="item-price">
+                <p className="p-price my-auto">$ {event.eventPrice}</p>
+              </div>
+              {/* <button
+                className={
+                  bookmark
+                    ? 'item-bookmark-add item-bookmark-added d-flex'
+                    : 'item-bookmark-add d-flex'
+                }
+              >
+                <p
+                  onClick={() => setBookmark(!bookmark)}
+                  className="my-auto mx-0"
+                >
+                  <FaRegBookmark /> + 加入收藏
+                </p>
+              </button> */}
+            </div>
+            <div className="item-detail">
+              <h6>特色</h6>
+              <div className="item-detail-content mb-0 pd-0">
+                <p
+                  className=" small"
+                  dangerouslySetInnerHTML={{ __html: event.eventDescription }}
+                ></p>
+              </div>
+            </div>
+            <div className="item-style d-flex justify-content-between">
+              <h6>規格</h6>
+              {/* <div className="item-style-tag">
+                <p className="btn-option p-1 m-0">{optionName}</p>
               </div> */}
             </div>
-            <div class="photo3">
-              {console.log(event.eventImg)}
-              {/* <img src={event.eventImg} /> */}
-              <SmallToLarge
-                picture={event.eventImg}
-                picture2={event.eventImg}
-                picture3={event.eventImg}
-              />
-              {/* <img src={event.eventImg} /> */}
-            </div>
-            <div class="text3">
-              <h4>{event.eventName}</h4>
-              <div class="line1 d-flex justify-content-between align-items-center mt-3 border-bottom">
-                <h3>$ {event.eventPrice}</h3>
-                <div className="d-flex align-items-center">
-                  <div>
-                    {collection ? (
-                      <BsBookmark
-                        size="22px"
-                        onMouseDown={() => {
-                          setcollection(0)
-                        }}
-                      />
-                    ) : (
-                      <FcBookmark
-                        size="22px"
-                        onMouseDown={() => {
-                          setcollection(1)
-                        }}
-                      />
-                    )}
-                  </div>
-                  <div className="add">加入收藏</div>
-                </div>
-              </div>
-              <div className="line2 d-flex justify-content-between align-items-center border-bottom pb-2 pt-4">
-                <p>付款方式 : 信用卡 / ATM / ApplePay / LinePay</p>
-              </div>
-              <div class="line2 d-flex justify-content-between align-items-center border-bottom pb-3 pt-3">
-                <div className="h6-tc"></div>
-                <h6>尚有名額</h6>
-              </div>
-              <div class="line3 d-flex  justify-content-between align-items-center border-bottom pb-3 pt-3">
-                <div className="h6-tc pr-3">數量 </div>
-                <div className="pl-3 Ebtn-group d-flex justify-content-between">
+            <div className="item-qty d-flex justify-content-between">
+              <h6 className>數量</h6>
+              <div className="qty-input input-group">
+                <div className="input-group-btn">
                   <button
                     onClick={() => setQty(qty - 1)}
                     className="btn "
@@ -157,11 +182,9 @@ const DetailCard = (props) => {
                   >
                     -
                   </button>
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder={qty}
-                  />
+                </div>
+                <input type="text" className="form-control" placeholder={qty} />
+                <div className="input-group-btn">
                   <button
                     onClick={() => setQty(qty + 1)}
                     className="btn"
@@ -172,27 +195,26 @@ const DetailCard = (props) => {
                   </button>
                 </div>
               </div>
-              <div className="line3 d-flex  justify-content-between align-items-center pb-3 pt-3">
-                <div className="mt-5">
-                  <button
-                    onClick={() => {
-                      updateCartToLocalStorage({
-                        id: event.id, //傳itemId
-                        name: event.eventName,
-                        amount: qty, //傳Qty
-                        price: event.eventPrice,
-                      })
-                    }}
-                    className="btn-border-l"
-                  >
-                    我要報名
-                  </button>
-                </div>
-              </div>
+            </div>
+            <div className="add-cart col-12 pl-5">
+              <button
+                onClick={() => {
+                  updateCartToLocalStorage({
+                    id: event.id, //傳itemId
+                    name: event.eventName,
+                    amount: qty, //傳Qty
+                    price: event.eventPrice,
+                  })
+                }}
+                className="btn-border-l"
+              >
+                加入購物車
+              </button>
             </div>
           </div>
         </div>
       </div>
+       
       <div className="container">
         <div className="row">
           <h2 className="border-bottom mt17vh">{event.eventName}</h2>

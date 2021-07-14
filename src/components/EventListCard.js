@@ -13,7 +13,7 @@ import { FcBookmark } from 'react-icons/fc'
 // import { data } from 'jquery'
 
 const EventListCard = () => {
-  const [collection, setcollection] = useState([1, 1, 1, 0, 0, 0])
+  const [collection, setcollection] = useState([1, 1, 1, 1, 1, 1])
   const [event, setEvent] = useState([]) //初始資料
   const [data, setdata] = useState([]) //初始資料
 

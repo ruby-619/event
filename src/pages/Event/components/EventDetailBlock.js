@@ -57,13 +57,13 @@ function EventDetailBlock(props) {
         <div className="item row justify-content-between">
           <div className="item-pic-wrap d-flex col-12 col-md-6">
             <div className="item-pic-select col-2 mx-2 p-0 ">
-              <button
+              {/* <button
                 onClick={() => setChangImg(itemCoverImg)}
                 className="item-pic-select-dot mb-3 p-0"
               >
                 <img src={`/img/Product/${itemCoverImg}`} alt="" />
-              </button>
-              {mutiImgArray.length &&
+              </button> */}
+              {/* {mutiImgArray.length &&
                 mutiImgArray.map((value, index) => {
                   return (
                     <>
@@ -76,7 +76,7 @@ function EventDetailBlock(props) {
                     </>
                   )
                 })}
-            </div>
+            </div> */}
             <div className="item-pic">
               <img src={`/img/Product/${changeImg}`} alt="" />
             </div>
@@ -96,25 +96,29 @@ function EventDetailBlock(props) {
             </div>
             <div className="item-price-line d-flex justify-content-between align-items-center ">
               <div className="item-price">
-                <p className="p-price my-auto">$ {itemPrice}</p>
+                <p className="p-price my-auto">$ {event.eventPrice}</p>
               </div>
-              <button
-                className={
-                  bookmark
-                    ? 'item-bookmark-add item-bookmark-added d-flex'
-                    : 'item-bookmark-add d-flex'
-                }
-              >
-                <p
-                  onClick={() => setBookmark(!bookmark)}
-                  className="my-auto mx-0"
-                >
-                  <FaRegBookmark /> + 加入收藏
-                </p>
-              </button>
+              <div>
+                {collection ? (
+                  <BsBookmark
+                    size="22px"
+                    onMouseDown={() => {
+                      setcollection(0)
+                    }}
+                  />
+                ) : (
+                  <FcBookmark
+                    size="22px"
+                    onMouseDown={() => {
+                      setcollection(1)
+                    }}
+                  />
+                )}
+              </div>
+              <div className="add">加入收藏</div>
             </div>
             <div className="item-detail">
-              <h6>特色</h6>
+              <h6>付款方式 : 信用卡 / ATM / ApplePay / LinePay</h6>
               <div className="item-detail-content mb-0 pd-0">
                 <p
                   className=" small"
@@ -123,10 +127,7 @@ function EventDetailBlock(props) {
               </div>
             </div>
             <div className="item-style d-flex justify-content-between">
-              <h6>規格</h6>
-              <div className="item-style-tag">
-                <p className="btn-option p-1 m-0">{optionName}</p>
-              </div>
+              <h6>尚有名額</h6>
             </div>
             <div className="item-qty d-flex justify-content-between">
               <h6 className>數量</h6>
@@ -166,7 +167,7 @@ function EventDetailBlock(props) {
                 }}
                 className="btn-border-l"
               >
-                加入購物車
+                我要報名
               </button>
             </div>
           </div>
@@ -177,6 +178,3 @@ function EventDetailBlock(props) {
 }
 
 export default EventDetailBlock
-
-
-

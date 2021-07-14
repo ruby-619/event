@@ -810,4 +810,159 @@ html *:after {
   height: 30px;
   font-size: 15px;
 }
+
+.item-row {
+  margin: 80px 60px;
+  margin-bottom: 60px;
+}
+
+@media (max-width: 992px) {
+  .item-row {
+    margin: 60px 60px;
+  }
+}
+
+.h5-item {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.h5-item-l {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.p-price {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  margin: 5px 0;
+  padding: 0;
+}
+
+.item-pic-select-dot {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background: #fff;
+  overflow: hidden;
+}
+
+.item-pic-select-dot:hover {
+  -webkit-filter: sepia(60%);
+          filter: sepia(60%);
+}
+
+.item-pic-select-dot img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.item-pic {
+  width: 100%;
+  height: 460px;
+  background: #fff;
+}
+
+.item-pic img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.item-info-wrap {
+  height: 460px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.item-tag {
+  border-bottom: 3px solid #282828;
+  padding-bottom: 5px;
+}
+
+.item-drop {
+  padding-right: 7px;
+  vertical-align: center;
+  display: inline-block;
+}
+
+.item-bookmark-add {
+  border: none;
+  border-bottom: 1.5px solid #383844;
+  background: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item-bookmark-added {
+  border-bottom: 1.5px solid #e64b4b;
+  color: #e64b4b;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.item-bookmark-add:hover {
+  border-bottom: 1.5px solid #e64b4b;
+  color: #e64b4b;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.item-tags {
+  display: inline-block;
+  vertical-align: center;
+  border-left: 1px solid #282828;
+  padding: 0 12px;
+}
+
+.btn-option {
+  border: 1px solid #383844;
+  background: none;
+}
+
+.item-price-line {
+  padding: 10px 0;
+}
+
+.item-detail,
+.item-style,
+.item-qty {
+  border-top: 1px solid #282828;
+  padding: 10px 0;
+}
+
+.qty-input {
+  width: 120px;
+}
+
+.add-cart {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+@media (max-width: 768px) {
+  .item-content-top {
+    position: static;
+  }
+}
+
+.item-content-top {
+  background: radial-gradient(30% 50% at 70% 50%, #f7f7ee 0%, #fdd2bb 60%);
+}
+
+@media (max-width: 768px) {
+  .item-content-top {
+    background: radial-gradient(#f7f7ee 0%, #fdd2bb 60%);
+  }
+}
 /*# sourceMappingURL=Event.css.map */
