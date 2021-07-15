@@ -5,7 +5,7 @@ import { IoMdCalendar } from 'react-icons/io'
 import { Route, withRouter, Link, Switch, matchPath } from 'react-router-dom'
 import CategoryNav from './CategoryNav'
 import LunarPhaseFooter from '../../../components/LunarPhaseFooter'
-import LunarPhaseHeader from '../../../components/LunarPhaseHeader'
+import LunarPhaseNavbar from '../../../components/LunarPhaseNavbar'
 
 const EventCategoryCard = (props) => {
   console.log(props)
@@ -59,7 +59,7 @@ const EventCategoryCard = (props) => {
   )
   return (
     <div>
-      <LunarPhaseHeader />
+      <LunarPhaseNavbar />
       <body className="bg2">
         {/* <CategoryNav/> */}
         <div class="container">

@@ -69,7 +69,7 @@ const HomePageCard = () => {
                     <figure className="hcard__thumb">
                       <div className="HomePageCardPhoto">
                       {/* <img src={`/img/Event/${event.eventImg}`} alt="" className="hcard__image" /> */}
-                        <img src={v.eventImg} className="hcard__image" />
+                        <img src={`/img/Event/${v.eventImg}`} className="hcard__image" />
                       </div>
                       <figcaption className="hcard__caption">
                         <h5 className="hcard__snippet"></h5>

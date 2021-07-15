@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import EventDetailCard from './components/EventDetailCard'
-import LunarPhaseHeader from '../../components/LunarPhaseHeader'
+import LunarPhaseNavbar from '../../components/LunarPhaseNavbar'
 import LunarPhaseFooter from '../../components/LunarPhaseFooter'
 import './Event.scss'
 import { withRouter } from 'react-router-dom'
@@ -10,7 +10,7 @@ import { FcBookmark } from 'react-icons/fc'
 const EventDetail = () => {
   return (
     <div>
-      <LunarPhaseHeader />
+      <LunarPhaseNavbar />
       <body className="bg2">
         <EventDetailCard />
         <LunarPhaseFooter />

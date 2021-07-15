@@ -55,7 +55,7 @@ const EventListCard = () => {
     setDataLoading(true)
 
     // 連接的伺服器資料網址
-    
+
     const url = `http://localhost:4567/event?page=${page}`
 
     // 注意header資料格式要設定，伺服器才知道是json格式
@@ -205,7 +205,7 @@ const EventListCard = () => {
 
                 <div class="ecard2 mt-5 d-flex">
                   <div class="photo2">
-                    <img src={v.eventImg} />
+                    <img src={`/img/Event/${v.eventImg}`} />
                   </div>
                   <div class="text">
                     <h4>{v.eventName}</h4>

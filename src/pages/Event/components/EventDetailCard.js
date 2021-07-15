@@ -5,6 +5,7 @@ import { FcBookmark } from 'react-icons/fc'
 import { withRouter } from 'react-router-dom'
 
 const EventDetailCard = (props) => {
+  
   // const [total, setTotal] = useState(0)
   const [collection, setcollection] = useState(1)
   // const [imageChange, setimageChange] = useState({})//小圖換大圖

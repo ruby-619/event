@@ -1,32 +1,36 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const LunarPhaseFooter = () => {
+// react-icon
+import { GrFacebookOption } from 'react-icons/gr'
+import { GrInstagram } from 'react-icons/gr'
+
+function Footer() {
   return (
-    <div>
+    <>
       <footer>
-        <div class="footer-box text-center">
-          <a href="">
+        <div className="footer-box text-center">
+          <Link to="/">
             <img
-              class="footer-logo"
-              src="../img/logo-m-dark.svg"
+              className="footer-logo"
+              src="/img/logo-m-dark.svg"
               alt="lunar_phase"
             />
-          </a>
-          <div class="footer-sns mt-3">
-            <a href="">
-              <i class="mx-2 fab fa-facebook-f "></i>
+          </Link>
+          <div className="footer-sns mt-3">
+            <a href="https://www.facebook.com/IIIEDU.TW" className="mx-2">
+              <GrFacebookOption />
             </a>
-            <a href="">
-              <i class="mx-2 fab fa-instagram"></i>
+            <a href="https://www.iiiedu.org.tw/" className="mx-2">
+              <GrInstagram />
             </a>
           </div>
-          <div class="footer-copyright">
-            <p class="small">Copyright © JSMART All rights reserved.</p>
+          <div className="footer-copyright">
+            <p className="small">Copyright © JSMART All rights reserved.</p>
           </div>
         </div>
       </footer>
-    </div>
+    </>
   )
 }
-
-export default LunarPhaseFooter
+export default Footer

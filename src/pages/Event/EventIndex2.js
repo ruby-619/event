@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import ReactDOM from 'react-dom'
 import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
 // import { Carousel } from 'react-responsive-carousel'
-import LunarPhaseHeader from '../../components/LunarPhaseHeader'
+import LunarPhaseNavbar from '../../components/LunarPhaseNavbar'
 import LunarPhaseFooter from '../../components/LunarPhaseFooter'
 import EventCard from './components/HomePageCard'
 import Carousel1 from './components/Carousel1'
@@ -20,7 +20,7 @@ const EventIndex2 = () => {
   const [color5, setcolor5] = useState('FDD2BB')
   return (
     <>
-      <LunarPhaseHeader />
+      <LunarPhaseNavbar />
       <body className="bg1">
         <Carousel1 />
         <div class="container">
