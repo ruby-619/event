@@ -10,6 +10,7 @@ const EventDetailCard = (props) => {
   const [collection, setcollection] = useState(1)
   // const [imageChange, setimageChange] = useState({})//小圖換大圖
   const [event, setEvent] = useState([])
+  const [eventName ,setEventname]=useState([])
   const [mycart, setMycart] = useState([])
   const [dataLoading, setDataLoading] = useState(false)
 
@@ -19,7 +20,7 @@ const EventDetailCard = (props) => {
 
     if (index > -1) {
       //currentCart[index].amount++
-      setEvent('這個商品已經加過了')
+      setEventname('這個商品已經加過了')
 
       return
     } else {
@@ -30,7 +31,9 @@ const EventDetailCard = (props) => {
 
     // 設定資料
     setMycart(currentCart)
-    setEvent('活動：' + item.name + '已成功加入購物車')
+    console.log(currentCart)
+    setEventname('活動：' + item.name + '已成功加入購物車')
+    console.log(event.data)
   }
 
   async function getEventFromServer() {
