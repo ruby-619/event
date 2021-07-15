@@ -5,17 +5,16 @@ import { FcBookmark } from 'react-icons/fc'
 import { withRouter } from 'react-router-dom'
 
 const EventDetailCard = (props) => {
-  
   // const [total, setTotal] = useState(0)
   const [collection, setcollection] = useState(1)
   // const [imageChange, setimageChange] = useState({})//小圖換大圖
   const [event, setEvent] = useState([])
-  const [eventName ,setEventname]=useState([])
-  const [mycart, setMycart] = useState([])
+  const [eventName, setEventname] = useState([])
+  const [myevcart, setMyevcart] = useState([])
   const [dataLoading, setDataLoading] = useState(false)
 
   const updateCartToLocalStorage = (item) => {
-    const currentCart = JSON.parse(localStorage.getItem('cart')) || []
+    const currentCart = JSON.parse(localStorage.getItem('evcart')) || []
     const index = currentCart.findIndex((v) => v.id === item.id)
 
     if (index > -1) {
@@ -27,10 +26,10 @@ const EventDetailCard = (props) => {
       currentCart.push(item)
     }
 
-    localStorage.setItem('cart', JSON.stringify(currentCart))
+    localStorage.setItem('evcart', JSON.stringify(currentCart))
 
     // 設定資料
-    setMycart(currentCart)
+    setMyevcart(currentCart)
     console.log(currentCart)
     setEventname('活動：' + item.name + '已成功加入購物車')
     console.log(event.data)
@@ -127,8 +126,7 @@ const EventDetailCard = (props) => {
             <div className="item-name mb-3">
               <h5 className="h5-item-l">{event.eventName}</h5>
             </div>
-            <div className="item-tag d-flex">
-            </div>
+            <div className="item-tag d-flex"></div>
             <div className="item-price-line d-flex justify-content-between align-items-center ">
               <div className="item-price">
                 <p className="p-price my-auto">$ {event.eventPrice}</p>
@@ -197,6 +195,7 @@ const EventDetailCard = (props) => {
                     name: event.eventName,
                     amount: qty, //傳Qty
                     price: event.eventPrice,
+                    image: event.eventImg,
                   })
                 }}
                 className="btn-border-l"

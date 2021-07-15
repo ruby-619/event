@@ -111,6 +111,10 @@ div.carousel-root {
   text-align: center;
 }
 
+.TextAlignLeft {
+  text-align: left;
+}
+
 .Empty {
   height: 50px;
   border-bottom: #383844 1px solid;

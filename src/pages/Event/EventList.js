@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import LunarPhaseHeader from '../../components/LunarPhaseNavbar'
-import EventListCard from '../../components/EventListCard'
+import EventListCard from './components/EventListCard'
 import { BsBookmark } from 'react-icons/bs'
 import EventNAV from './components/EventNAV'
 import Input from '../../components/Input'

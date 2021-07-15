@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Pagination } from 'react-bootstrap'
-import DateSearch from '../pages/Event/components/Filter/DateSearch'
-import Location from '../pages/Event/components/Filter/Location'
-import SearchBar from '../pages/Event/components/Filter/SearchBar'
-import Sort from '../pages/Event/components/Filter/Sort'
+import DateSearch from './Filter/DateSearch'
+import Location from './Filter/Location'
+import SearchBar from './Filter/SearchBar'
+import Sort from './Filter/Sort'
 import { BsBookmark } from 'react-icons/bs'
 import { GoLocation } from 'react-icons/go'
 import { IoMdCalendar } from 'react-icons/io'
@@ -208,7 +208,7 @@ const EventListCard = () => {
                     <img src={`/img/Event/${v.eventImg}`} />
                   </div>
                   <div class="text">
-                    <h4>{v.eventName}</h4>
+                    <h4 className="TextAlignLeft">{v.eventName}</h4>
                     <div class="line2 d-flex justify-content-between align-items-center border-bottom pb-3 pt-3">
                       <div className="h6-tc d-flex align-items-center">
                         <div>

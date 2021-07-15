@@ -100,10 +100,10 @@ const EventCategoryCard = (props) => {
               <div>
                 <div class="ecard2 mt-5 d-flex ">
                   <div class="photo2">
-                    <img src={v.eventImg} />
+                  <img src={`/img/Event/${v.eventImg}`} alt="" />
                   </div>
                   <div class="text">
-                    <h4>{v.eventName}</h4>
+                    <h4 className="TextAlignLeft">{v.eventName}</h4>
                     <div class="line2 d-flex justify-content-between align-items-center border-bottom pb-3 pt-3">
                       <div className="h6-tc d-flex align-items-center">
                         <div>

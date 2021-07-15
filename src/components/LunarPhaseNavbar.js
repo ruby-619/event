@@ -53,7 +53,6 @@ function LunarPhaseNavbar() {
               <div className="ml-2 mt-2">
                 <Link to="/" className="mx-0">
                   <FaUser />
-                  <i className="fas fa-user" />
                 </Link>
                 <div />
               </div>
