@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { GiCampingTent, GiBookCover } from 'react-icons/gi'
 import { FaPaintBrush, FaHandPaper, FaWineGlass } from 'react-icons/fa'
 

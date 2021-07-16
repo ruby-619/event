@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import SmallToLarge from '../SmallToLarge'
-import { BsBookmark } from 'react-icons/bs'
-import { FcBookmark } from 'react-icons/fc'
+// import SmallToLarge from '../SmallToLarge'
+// import { BsBookmark } from 'react-icons/bs'
+// import { FcBookmark } from 'react-icons/fc'
 import { withRouter } from 'react-router-dom'
 
 const EventDetailCard = (props) => {
   // const [total, setTotal] = useState(0)
-  const [collection, setcollection] = useState(1)
+  // const [collection, setcollection] = useState(1)// 書籤變色（暫時註解掉）
   // const [imageChange, setimageChange] = useState({})//小圖換大圖
   const [event, setEvent] = useState([])
   const [eventName, setEventname] = useState([])
@@ -248,7 +248,7 @@ const EventDetailCard = (props) => {
                 dangerouslySetInnerHTML={{ __html: event.eventNotice }}
               ></div>
               <div>
-                <svg
+                <svg className="WaveBackground"
                   xmlns="http://www.w3.org/2000/svg"
                   width="1441.055"
                   height="80.065"

@@ -1,6 +1,6 @@
-import React, { Component, useState } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import ReactDOM from 'react-dom'
+// import ReactDOM from 'react-dom'
 import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
 // import { Carousel } from 'react-responsive-carousel'
 import LunarPhaseNavbar from '../../components/LunarPhaseNavbar'
@@ -9,7 +9,8 @@ import EventCard from './components/HomePageCard'
 import Carousel1 from './components/Carousel1'
 import { GiCampingTent, GiBookCover, GiHamburgerMenu } from 'react-icons/gi'
 
-import { FaPaintBrush, FaHandPaper, FaWineGlass } from 'react-icons/fa'
+import { FaPaintBrush, FaHandPaper } from 'react-icons/fa'
+// FaWineGlass
 import './Event.scss'
 
 const EventIndex2 = () => {
@@ -116,8 +117,9 @@ const EventIndex2 = () => {
               </div>
             </Link>
           </div>
-          <div className="WaveBackground">
+          <div>
             <svg
+              className="WaveBackground"
               xmlns="http://www.w3.org/2000/svg"
               // xmlns:xlink="http://www.w3.org/1999/xlink"
               width="1658.091"

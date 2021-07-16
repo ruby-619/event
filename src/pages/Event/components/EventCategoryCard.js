@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { BsBookmark } from 'react-icons/bs'
 import { GoLocation } from 'react-icons/go'
 import { IoMdCalendar } from 'react-icons/io'
-import { Route, withRouter, Link, Switch, matchPath } from 'react-router-dom'
-import CategoryNav from './CategoryNav'
+import { withRouter } from 'react-router-dom'
+// import CategoryNav from './CategoryNav'
 import LunarPhaseFooter from '../../../components/LunarPhaseFooter'
 import LunarPhaseNavbar from '../../../components/LunarPhaseNavbar'
 
@@ -100,7 +100,7 @@ const EventCategoryCard = (props) => {
               <div>
                 <div class="ecard2 mt-5 d-flex ">
                   <div class="photo2">
-                  <img src={`/img/Event/${v.eventImg}`} alt="" />
+                    <img src={`/img/Event/${v.eventImg}`} alt="" />
                   </div>
                   <div class="text">
                     <h4 className="TextAlignLeft">{v.eventName}</h4>

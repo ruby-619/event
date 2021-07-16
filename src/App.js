@@ -31,6 +31,7 @@ function App() {
           {/* <Route path="/event-list/category/:id?">
             <EventCategoryCard />
           </Route> */}
+
           <Route path="/event-list">
             <EventList />
           </Route>
@@ -38,7 +39,6 @@ function App() {
           <Route path="/event-detail/:id?">
             <EventDetail />
           </Route>
-         
 
           <Route path="/event">
             <EventIndex2 renderItem />

@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
-import { Route, withRouter, Link, Switch, matchPath } from 'react-router-dom'
+// import React, { useState } from 'react'
+import { withRouter, Link } from 'react-router-dom'
 
 const EventNAV = (props) => {
-  const url = props.match.url
-  const path = props.match.path
+  // const url = props.match.url
+  // const path = props.match.path
   return (
     <div class="container">
       <div class="row">
